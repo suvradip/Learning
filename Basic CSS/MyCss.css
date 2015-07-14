@@ -6,7 +6,7 @@
 	display: block;
 	width: 40em;
 	height: 15em;
-	margin: 2em auto;
+	margin: 2em 15em;
 
 	}
 
@@ -49,6 +49,7 @@
 	background-color: #E4F0FF;
 	text-align: center;
 	border-radius: 3px 3px 0px 0px;
+	font-family: sans-serif;
 
 	}
 
@@ -112,20 +113,23 @@
 	height: 2em;
 	text-align: center;
 	background-color: green;
-	
 	line-height: 2em;
+	text-shadow:2px 1px black 2px;
+
 	}
 
-	/*.learn :hover
+
+	.tabs .tab1 .learn:hover
 	{
-		background-color: white;
+		background-color: #47B56C;
+		outline: 1.5px solid green;
 	}
-*/
+
 	.tab1 .learn a
 	{
 		text-decoration: none;
 		color: white;
-		text-shadow:1px 1px black 1px;
+		text-shadow:1px 1px  1px black;
 	}
 
 	
@@ -162,6 +166,6 @@
 
 	.image_div
 	{
-padding:0em 2em 1em 2em;
+	padding:0em 2em 1em 2em;
 
 	}
