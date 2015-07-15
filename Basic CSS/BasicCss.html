@@ -5,8 +5,7 @@
 
 
 <link rel="stylesheet" type="text/css" href="MyCss.css">
-<link rel="stylesheet" type="text/css" href="normalize.css">
-
+<script src="js/myjs.js"></script>
 
 <script type="text/javascript">
 	function tabToggle(x)
@@ -32,9 +31,14 @@
 	
 	}
 }	
+
 </script>
 
+
+
 </head>
+<form>
+
 <body >
 
 <h1>Page Designed by Suvradip Saha</h1>
@@ -71,12 +75,62 @@
 
 	<div class="tab2" id="x2">
 	<h2 onclick="tabToggle(1);" id="tab2_h2"><a href="#" id="tab2_h2_a">Subscribe</a></h2>
-				<div>This content appears on tab 2.</div> 
-				<div>This content appears on tab 2.</div>
+
+				<div class="con2_1">
+						<p class="p_h1">Subscription Form </p>
+						
+						<div class="con2_2">
+							<table border="0" cellspacing="5" cellpadding="5">
+								<tr>
+									<td><span>Name</span></td>
+									<td><input id="name" type="text" class="text_input_style text_input_bgcolor"  required/></td>
+								</tr>
+								<tr>
+									<td><span>Email</span></td>
+									<td><input id="email" type="email" class="text_input_style text_input_bgcolor"  required/></td>
+								</tr>
+								<tr>
+									<td><span>Sex</span></td>
+									<td>
+										<input type="radio" name="sex" value="Male" required><span>Male</span>
+										<input type="radio" name="sex" value="Female" required><span>Female</span>
+									</td>
+								</tr>
+								<tr>
+									<td><span>Interest</span></td>
+									<td>
+										<input id="cb1" type="checkbox" value="Football" /><span>Football</span> &nbsp;&nbsp;
+										<input id="cb2" type="checkbox" value="Movie"    /><span>Movie</span>    &nbsp;&nbsp;
+										<input id="cb3" type="checkbox" value="Reading"  /><span>Reading</span>  &nbsp;&nbsp;	
+									</td>
+								</tr>
+							</table>
+						</div><!-- end of con2_2 -->
+
+						<div class="con2_3">
+							<table cellspacing="5" cellpadding="5">
+								<tr>
+									<td><span>Country</td>
+									<td><input id="country" type="text" class="text_input_style text_input_bgcolor" required/></td>
+								</tr>
+
+								<tr>
+									<td valign="top"><span>Address</span></td>
+									<td><textarea id="address" type="text" class="text_textarea_style text_input_style text_input_bgcolor" ></textarea>
+									</td> 
+								</tr>
+							</table>
+						</div><!-- end of con2_3 -->
+
+						<div class="reset" onclick="reset();" title="Click me to reset this form"><a href="#"> RESET </a></div>	
+						<div class="subscribe" onclick="getData();" title="Click me to subscribe"><a href="#" > SUBSCRIBE </a></div>	
+
+				</div> <!-- end of con2_1 -->
 	</div> <!-- end of tab2  -->
 
 </div>
 
 
 </body>
+</form>
 </html>

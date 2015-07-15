@@ -1,4 +1,19 @@
-.tabs
+	@font-face {
+    font-family: OpenSans-Semibold;
+    src: url(fonts/OpenSans-Semibold.ttf);
+	}
+
+	@font-face {
+    font-family: OpenSans-Regular;
+    src: url(fonts/OpenSans-Regular.ttf);
+	}
+
+	body
+	{
+		font-family: OpenSans-Semibold;
+	}
+
+	.tabs
 	{
 		position: relative;
 		display: block;
@@ -15,7 +30,7 @@
 		position: absolute;
 		display: inline-block;
 		top: 1.8em;
-		height: 20em;
+		height: 21.5em;
 		width: 55em;
 		left: 0;
 		padding: 10px 0 10px 0;
@@ -30,17 +45,6 @@
 	z-index: 1;
 	}
 
-
-	/*.tabs .tab2
-	{
-	z-index: 1;
-	}
-*/
-
-
-
-
-
 	.tabs div h2
 	{
 		
@@ -54,7 +58,6 @@
 		margin: 0 ;
 		text-align: center;
 		border-radius: 3px 3px 0px 0px;
-		font-family: sans-serif;
 
 	}
 
@@ -105,6 +108,7 @@
 		float: left;
 		border: 1px solid #A5BBE4;
 		background-color: white;
+		border-radius: 7px;
 	}
 
 	.tabs .tab1 .con1
@@ -134,7 +138,7 @@
 		text-align: center;
 		background-color: #56a200;
 		line-height: 2em;
-		text-shadow:2px 1px black 2px;
+		
 
 	}
 
@@ -159,7 +163,6 @@
 		padding-left: 1em;
 		font-weight: bold;
 		font-size:  22px;
-		font-family: sans-serif;
 		color: #757575;
 	}
 
@@ -189,3 +192,115 @@
 		padding:0em 2em 1em 2em;
 
 	}
+
+
+
+
+.tab2 .con2_1
+{
+display: inline-block;
+margin: 1em;
+background-color: white;
+position: absolute;
+width: 96%;
+height: 18em;
+float: left;
+border: 1px solid #A5BBE4;
+border-radius: 7px;
+}
+
+.con2_1 div
+{
+position: absolute;
+/*border: 1px solid black;*/
+height: 75%;
+width: 48%;
+top: 2.5em;
+margin: 1em;
+}
+
+ .con2_3
+{
+left: 52%;
+}
+
+
+
+.text_input_style
+{
+height: 1.85em;
+width: 20em;
+border-radius: 3px;
+outline: none;
+border: 1px solid #D7D7D7;
+}
+
+.text_input_bgcolor
+{
+	background-color: #F3F3F3;
+}
+
+
+
+.text_textarea_style
+{
+	min-height: 5em;
+	height: 5em;
+	max-height: 5em;
+	max-width: 19.7em;
+
+}
+
+.tab2 .con2_1 span
+{
+	color: #B3B3B3;
+	font-size: 13.81px;
+	font-family: OpenSans-Regular;
+}
+
+.tab2 .subscribe
+{
+		position: absolute;
+		top:87.5%;
+		left: 78%;	
+		width: 7em;
+		height: 2em; 
+		text-align: center;
+		background-color: #56a200;
+		line-height: 2em;
+		font-size: 18px;
+}
+
+.tab2 .subscribe:hover
+{
+	background-color: #47B56C;
+	outline: 1.5px solid green;
+}
+
+
+.tab2 .reset
+{
+		position: absolute;
+		top:87.5%;
+		left: 62%;	
+		width: 7em;
+		height: 2em; 
+		text-align: center;
+		background-color: #56a200;
+		line-height: 2em;
+		font-size: 18px;
+}
+
+.tab2 .reset:hover
+{
+	background-color: #47B56C;
+	outline: 1.5px solid green;
+}
+
+.tab2 .con2_1 a
+{
+		text-decoration: none;
+		color: white;
+		text-shadow:1px 1px 1px black;	
+
+}
