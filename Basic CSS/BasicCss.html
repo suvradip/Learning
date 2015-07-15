@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Page Designed by Suvradip Saha</title>
+	<title>Page Design by Suvradip Saha</title>
 
 
 <link rel="stylesheet" type="text/css" href="MyCss.css">
+<link rel="stylesheet" type="text/css" href="normalize.css">
+
+
 <script type="text/javascript">
 	function tabToggle(x)
 	 {
@@ -14,14 +17,19 @@
 	document.getElementById("x1").style.zIndex = "0";
 	document.getElementById("x2").style.zIndex = "1";
 	document.getElementById("tab1_h2").style.backgroundColor = "#FFFFFF";
-	document.getElementById("tab2_h2").style.backgroundColor = "#E4F0FF";
+	document.getElementById("tab2_h2").style.backgroundColor = "#E4FFFF";
+	document.getElementById("tab1_h2_a").style.color = "#717171";
+	document.getElementById("tab2_h2_a").style.color = "#09569d";
 	}
 	else
 	{
 	document.getElementById("x1").style.zIndex = "1";
 	document.getElementById("x2").style.zIndex = "0";
-	document.getElementById("tab1_h2").style.backgroundColor = "#E4F0FF";
+	document.getElementById("tab1_h2").style.backgroundColor = "#E4FFFF";
 	document.getElementById("tab2_h2").style.backgroundColor = "#FFFFFF";
+	document.getElementById("tab1_h2_a").style.color = "#09569d";
+	document.getElementById("tab2_h2_a").style.color = "#717171";
+	
 	}
 }	
 </script>
@@ -29,13 +37,13 @@
 </head>
 <body >
 
-<h1>Page Designed by Suvradip Saha</h1>
+<h1>Page Design by Suvradip Saha</h1>
 
 
 <div class="tabs">
 
 	<div class="tab1" id="x1">
-	<h2 id="tab1_h2" onclick="tabToggle(0);"><a href="#"> News</a></h2>
+	<h2 id="tab1_h2" onclick="tabToggle(0);" ><a href="#" id="tab1_h2_a"> News</a></h2>
 
 				<div class="con1">
 
@@ -48,7 +56,7 @@
 			
 				</div>  <!-- End of con1 div -->
 
-				<div class="con2">
+				<div class="con2" >
 					<p class="p_h1">Latest News</p>
 
 					<img src="timcook.jpg" width="350px" height="182px" class="image_div" alt="Image of Tim Cook">
@@ -56,15 +64,15 @@
 				</div> <!-- end of con2 div  -->
 
 
-				<h3 class="learn"><a href="#"> LEARN MORE </a></h3>
+				<h3 class="learn" ><a href="#"> LEARN MORE </a></h3>
 	</div> <!-- end of tab1 -->
 	
 
 
 	<div class="tab2" id="x2">
-	<h2 onclick="tabToggle(1);" id="tab2_h2"><a href="#">Subscribe</a></h2>
-				<div>This content appears on tab 1.</div> 
-				<div>This content appears on tab 1.</div>
+	<h2 onclick="tabToggle(1);" id="tab2_h2"><a href="#" id="tab2_h2_a">Subscribe</a></h2>
+				<div>This content appears on tab 2.</div> 
+				<div>This content appears on tab 2.</div>
 	</div> <!-- end of tab2  -->
 
 </div>
