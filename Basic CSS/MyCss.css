@@ -1,5 +1,4 @@
 
-	
 	.tabs
 	{
 		position: relative;
@@ -13,7 +12,7 @@
 	.tabs .tab1, .tab2
 	{
 
-		border: 1px solid #BECDEE; 
+		border: 1px solid #BDCDEE; 
 		position: absolute;
 		display: inline-block;
 		top: 1.8em;
@@ -23,16 +22,24 @@
 		padding: 10px ;
 		border-radius: 5px;
 		z-index: 0;
-		background-color: #E4F0FF;
+		background-color: #E4FFFF;
 	}
 
+	
 	.tabs .tab1
 	{
 	z-index: 1;
 	}
 
 
-	
+	/*.tabs .tab2
+	{
+	z-index: 1;
+	}
+*/
+
+
+
 
 
 	.tabs div h2
@@ -46,7 +53,6 @@
 		left: 20px;
 		padding: 0;
 		margin: 0 ;
-		background-color: #E4F0FF;
 		text-align: center;
 		border-radius: 3px 3px 0px 0px;
 		font-family: sans-serif;
@@ -56,9 +62,12 @@
 	.tabs .tab1 h2
 	{
 		/*border: 1px solid;*/
+		/*background-color: #FFFFFF;*/
+		background-color: #E4FFFF; 
 		border-right: 1px solid #BECDEE;
 		border-top: 1px solid #BECDEE;
 		border-left: 1px solid #BECDEE;
+		
 
 	}
 
@@ -76,8 +85,18 @@
 	{
 	
 		line-height: 1.8em;
-		text-decoration: none;
-		color: black;
+		text-decoration: none; 
+		outline: none;
+	}
+
+	.tabs .tab1 a
+	{
+		color: #09569d;
+	}
+
+	.tabs .tab2 a
+	{
+		color: #717171;
 	}
 
 	.tabs .tab1 div
@@ -134,16 +153,16 @@
 
 	
 
-	.p_h1
+	.tabs .p_h1
 	{
 		padding-left: 1em;
 		font-weight: bold;
 		font-size: 1.5em;
 		font-family: sans-serif;
-		color: #767676;
+		color: #757575;
 	}
 
-	.p_h2
+	.tabs .p_h2
 	{
 
 		text-align: justify;
@@ -151,20 +170,20 @@
 		padding-right: 1.5em;
 		font-weight: 400;
 		font-size: 1.0em;	
-		color: #B4B4B4;
+		color: #6e6e6e;
 	}
 
-	.p_h3
+	.tabs .p_h3
 	{
 		
 		padding: 1.5em;
 		padding-top:0em;
 		font-weight: 500;
 		font-size: 1.2em;
-		color: #6291D7;
+		color: #1b6bce;
 	}
 
-	.image_div
+	.tabs .image_div
 	{
 		padding:0em 2em 1em 2em;
 
