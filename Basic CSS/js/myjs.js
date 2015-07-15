@@ -8,7 +8,7 @@ function reset()
 //reset of text boxes.	
 document.getElementById("name").value="";
 document.getElementById("email").value="";
-document.getElementById("country").value="";
+document.getElementById("country").selectedIndex=0;
 document.getElementById("address").value="";
 
 //reset of radio buttons.
@@ -67,7 +67,10 @@ function getData()
 //gets the all value from text boxes	
 var n=document.getElementById("name").value;
 var e=document.getElementById("email").value;
-var c=document.getElementById("country").value;
+//var c=document.getElementById("country").value;
+var ele = document.getElementById("country");
+var c = ele.options[ele.selectedIndex].text;
+
 var a=document.getElementById("address").value;
 var cb1=document.getElementById("cb1");
 var cb2=document.getElementById("cb2");
