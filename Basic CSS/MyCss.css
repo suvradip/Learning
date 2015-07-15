@@ -19,7 +19,7 @@
 		height: 20em;
 		width: 55em;
 		left: 0;
-		padding: 10px ;
+		padding: 10px 0 10px 0;
 		border-radius: 5px;
 		z-index: 0;
 		background-color: #E4FFFF;
@@ -111,14 +111,16 @@
 	.tabs .tab1 .con1
 	{
 	
-		margin: 1em 0.5em 1em 1em; 
+		margin: 1em; 
 	
 	}
 
 	.tabs .tab1 .con2
 	{
 	
-		margin: 1em 1em 1em 0.5em; 
+		margin: 1em ;
+		position: absolute;
+		left: 49%; 
 	
 	}
 
