@@ -5,7 +5,26 @@
 
 
 <link rel="stylesheet" type="text/css" href="MyCss.css">
-
+<script type="text/javascript">
+	function tabToggle(x)
+	 {
+	
+	if(x==1)
+	{	
+	document.getElementById("x1").style.zIndex = "0";
+	document.getElementById("x2").style.zIndex = "1";
+	document.getElementById("tab1_h2").style.backgroundColor = "#FFFFFF";
+	document.getElementById("tab2_h2").style.backgroundColor = "#E4F0FF";
+	}
+	else
+	{
+	document.getElementById("x1").style.zIndex = "1";
+	document.getElementById("x2").style.zIndex = "0";
+	document.getElementById("tab1_h2").style.backgroundColor = "#E4F0FF";
+	document.getElementById("tab2_h2").style.backgroundColor = "#FFFFFF";
+	}
+}	
+</script>
 
 </head>
 <body >
@@ -15,8 +34,8 @@
 
 <div class="tabs">
 
-	<div class="tab1">
-	<h2><a href=""> News</a></h2>
+	<div class="tab1" id="x1">
+	<h2 id="tab1_h2" onclick="tabToggle(0);"><a href="#"> News</a></h2>
 
 				<div class="con1">
 
@@ -42,8 +61,8 @@
 	
 
 
-	<div class="tab2">
-	<h2><a href="">Subscribe</a></h2>
+	<div class="tab2" id="x2">
+	<h2 onclick="tabToggle(1);" id="tab2_h2"><a href="#">Subscribe</a></h2>
 				<div>This content appears on tab 1.</div> 
 				<div>This content appears on tab 1.</div>
 	</div> <!-- end of tab2  -->
