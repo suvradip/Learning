@@ -3,41 +3,11 @@
 <head>
 	<title>Page Designed by Suvradip Saha</title>
 
-
-<link rel="stylesheet" type="text/css" href="MyCss.css">
-<script src="js/myjs.js"></script>
-
-<script type="text/javascript">
-	function tabToggle(x)
-	 {
-	
-	if(x==1)
-	{	
-	document.getElementById("x1").style.zIndex = "0";
-	document.getElementById("x2").style.zIndex = "1";
-	document.getElementById("tab1_h2").style.backgroundColor = "#FFFFFF";
-	document.getElementById("tab2_h2").style.backgroundColor = "#E4EFFF";
-	document.getElementById("tab1_h2_a").style.color = "#717171";
-	document.getElementById("tab2_h2_a").style.color = "#09569d";
-	}
-	else
-	{
-	document.getElementById("x1").style.zIndex = "1";
-	document.getElementById("x2").style.zIndex = "0";
-	document.getElementById("tab1_h2").style.backgroundColor = "#E4EFFF";
-	document.getElementById("tab2_h2").style.backgroundColor = "#FFFFFF";
-	document.getElementById("tab1_h2_a").style.color = "#09569d";
-	document.getElementById("tab2_h2_a").style.color = "#717171";
-	
-	}
-}	
-
-</script>
-
-
+	<link rel="stylesheet" type="text/css" href="MyCss.css">
+	<script src="js/myjs.js"></script>
 
 </head>
-<form>
+<form action="" onsubmit="return false" autocomplete="off">
 
 <body >
 
@@ -92,14 +62,14 @@
 								<tr>
 									<td><span>Sex</span></td>
 									<td>
-										<input type="radio" name="sex" value="Male" required><span>Male</span>
-										<input type="radio" name="sex" value="Female" required><span>Female</span>
+										<input type="radio" name="sex" value="Male" required /><span>Male</span>
+										<input type="radio" name="sex" value="Female" required /><span>Female</span>
 									</td>
 								</tr>
 								<tr>
 									<td><span>Interest</span></td>
 									<td>
-										<input id="cb1" type="checkbox" value="Football" /><span>Football</span> &nbsp;&nbsp;
+										<input id="cb1" type="checkbox" value="Football"  /><span>Football</span> &nbsp;&nbsp;
 										<input id="cb2" type="checkbox" value="Movie"    /><span>Movie</span>    &nbsp;&nbsp;
 										<input id="cb3" type="checkbox" value="Reading"  /><span>Reading</span>  &nbsp;&nbsp;	
 									</td>
@@ -112,8 +82,9 @@
 								<tr>
 									<td><span>Country</td>
 									<td><!-- <input id="country" type="text" class="text_input_style text_input_bgcolor" required/> -->
-										<select id="country" class="text_input_style text_input_bgcolor">
-											<option value="null">Select one</option>
+
+										<select id="country" class="text_input_style text_input_bgcolor" required>
+											<option value="">Select one</option>
 											<option value="AF">Afghanistan</option>
 											
 											<option value="AL">Albania</option>
@@ -366,15 +337,16 @@
 
 								<tr>
 									<td valign="top"><span>Address</span></td>
-									<td><textarea id="address" type="text" class="text_textarea_style text_input_style text_input_bgcolor" ></textarea>
+									<td>
+									<textarea id="address" type="text" class="text_textarea_style text_input_style text_input_bgcolor" required></textarea>
 									</td> 
 								</tr>
 							</table>
 						</div><!-- end of con2_3 -->
 
-						<div class="reset" onclick="reset();" title="Click me to reset this form"><a href="#"> RESET </a></div>	
-						<div class="subscribe" onclick="getData();" title="Click me to subscribe"><a href="#" > SUBSCRIBE </a></div>	
-
+						
+						<input type="reset" class="reset" title="Click me to reset this form"/>
+						<input type="submit" class="subscribe"  title="Click me to subscribe" value ="Subscribe" onclick="getData();" />
 				</div> <!-- end of con2_1 -->
 	</div> <!-- end of tab2  -->
 
