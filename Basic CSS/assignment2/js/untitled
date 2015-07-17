@@ -1,8 +1,0 @@
-
-function cbchange(cb) {
-  if(cb.checked == true){
-   document.getElementById("cb1_sub").style.visibility = "block";
-  }else{
-   alert('Message 2');
-  }
-}

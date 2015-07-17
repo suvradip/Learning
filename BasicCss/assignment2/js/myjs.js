@@ -86,7 +86,7 @@ function getData()
 {
 
 //checking textboxe values
-if(document.getElementById("name").value!="" && document.getElementById("email").value!=""  && document.getElementById("country").selectedIndex!=0 && document.getElementById("address").value!=""  )
+if(document.getElementById("name").value!="" && document.getElementById("email").value!=""  && document.getElementById("country").selectedIndex!=0 && document.getElementById("address").value!="" && document.getElementById("phone").value!="" )
         {
 
             //gets the all value from text boxes    
@@ -96,8 +96,9 @@ if(document.getElementById("name").value!="" && document.getElementById("email")
             var ele = document.getElementById("country");
             var c = ele.options[ele.selectedIndex].text;
 
-           // var s=ele.options[document.getElementById("state").selectedIndex].text;
+            var s=document.getElementById("state").value;
 
+            
             var a=document.getElementById("address").value;
             var cb1=document.getElementById("cb1");
             var cb2=document.getElementById("cb2");
@@ -158,6 +159,7 @@ if(document.getElementById("name").value!="" && document.getElementById("email")
                         "email":e,
                         "phone":p,
                         "country":c,
+                        "state":s,
                         "address":a,
                         "sex":gender,
                         "games":games,
@@ -377,3 +379,10 @@ var states = new Array(2)
             phone.style.borderColor = "red";
         
     }
+
+    function removeOptions()
+	{
+		document.getElementById("state").innerHTML = "";
+		document.getElementById("state").disabled=false;
+		
+	}
