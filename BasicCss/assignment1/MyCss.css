@@ -1,0 +1,312 @@
+	@font-face {
+    		font-family: OpenSans-Semibold;
+    		src: url(fonts/OpenSans-Semibold.ttf);
+	}
+
+	@font-face {
+    		font-family: OpenSans-Regular;
+    		src: url(fonts/OpenSans-Regular.ttf);
+	}
+
+	body
+	{
+		font-family: OpenSans-Semibold;
+	}
+
+	.tabs
+	{
+		position: relative;
+		display: block;
+		width: 40em;
+		height: 15em;
+		margin: 2em 15em;
+
+	}
+
+	.tabs .tab1, .tab2
+	{
+
+		border: 1px solid #BDCDEE; 
+		position: absolute;
+		display: inline-block;
+		top: 1.8em;
+		height: 21.5em;
+		width: 55em;
+		left: 0;
+		padding: 10px 0 10px 0;
+		border-radius: 5px;
+		z-index: 0;
+		background-color: #e4efff;
+	}
+
+	
+	.tabs .tab1
+	{
+		z-index: 1;
+	}
+
+	.tabs div h2
+	{
+		
+		position: absolute;
+		font-size: 1em;
+		width: 120px;
+		height: 2em;
+		top: -2.1em;
+		left: 20px;
+		padding: 0;
+		margin: 0 ;
+		text-align: center;
+		border-radius: 3px 3px 0px 0px;
+
+		border-right: 1px solid #dddddd;
+		border-top: 1px solid #dddddd;
+		border-left: 1px solid #dddddd;
+
+	}
+
+	.tabs .tab1 h2
+	{
+	
+		background-color: #E4EFFF; 
+	
+	}
+
+	.tabs .tab2 h2
+	{
+		left: 145px;
+		background-color: #FFFFFF;
+	}
+
+	.tabs  h2 a
+	{
+	
+		line-height: 1.8em;
+		text-decoration: none; 
+		outline: none;
+	}
+
+	.tabs .tab1 a
+	{
+		color: #09569d;
+	}
+
+	.tabs .tab2 a
+	{
+		color: #717171;
+	}
+
+	.tabs .tab1 div
+	{
+		width: 47%;
+		height: 18em;
+		float: left;
+		border: 1px solid #A5BBE4;
+		background-color: white;
+		border-radius: 7px;
+	}
+
+	.tabs .tab1 .con1
+	{
+	
+		margin: 1em; 
+	
+	}
+
+	.tabs .tab1 .con2
+	{
+	
+		margin: 1em ;
+		position: absolute;
+		left: 49%; 
+	
+	}
+
+
+	.tab1 .learn
+	{
+		position: absolute;	
+		left: 7.5em;
+		top: 14.8em;
+		width: 10em;
+		height: 2em;
+		text-align: center;
+		background-color: #56a200;
+		line-height: 2em;
+		
+
+	}
+
+
+	.tabs .tab1 .learn:hover
+	{
+		background-color: #47B56C;
+		outline: 1.5px solid green;
+	}
+
+	.tab1 .learn a
+	{
+		text-decoration: none;
+		color: white;
+		text-shadow:1px 1px  1px black;
+	}
+
+	
+
+	.tabs .p_h1
+	{
+		padding-left: 1em;
+		font-weight: bold;
+		font-size:  22px;
+		color: #757575;
+	}
+
+	.tabs .p_h2
+	{
+
+		text-align: justify;
+		padding-left: 1.5em;
+		padding-right: 1.5em;
+		font-weight: 500;
+		font-size: 13.81px;	
+		color: #6e6e6e;
+	}
+
+	.tabs .p_h3
+	{
+		
+		padding: 1.5em;
+		padding-top:0em;
+		font-weight: 500;
+		font-size: 13.81px;
+		color: #1b6bce;
+	}
+
+	.tabs .image_div
+	{
+		padding:0em 2em 1em 2em;
+
+	}
+
+
+
+
+.tab2 .con2_1
+{
+	display: inline-block;
+	margin: 1em;
+	background-color: white;
+	position: absolute;
+	width: 96%;
+	height: 18em;
+	float: left;
+	border: 1px solid #A5BBE4;
+	border-radius: 7px;
+}
+
+.con2_1 div
+{
+	position: absolute;
+	/*border: 1px solid black;*/
+	height: 75%;
+	width: 48%;
+	top: 2.5em;
+	margin: 1em;
+}
+
+ .con2_3
+{
+	left: 52%;
+}
+
+
+
+.text_input_style
+{
+	height: 2em;
+	width: 20em;
+	border-radius: 3px;
+	outline: none;
+	border: 1px solid #D7D7D7;
+}
+
+.text_input_bgcolor
+{
+	background-color: #F3F3F3;
+}
+
+
+
+.text_textarea_style
+{
+	
+	height: 6em;
+	width: 19.7em;
+	resize:none;
+
+}
+
+.tab2 .con2_1 span
+{
+	color: #B3B3B3;
+	font-size: 13.81px;
+	font-family: OpenSans-Regular;
+}
+
+.tab2 .subscribe, .reset 
+{
+	position: absolute;
+	top:93.5%;
+	left: 80%;	
+	width: 7em;
+	height: 2em; 
+	text-align: center;
+	background-color: #56a200;
+	line-height: 2em;
+	font-size: 18px;
+	color: #FFFFFF;
+	outline: none;
+	border: none;
+	text-decoration: none;
+		
+}
+
+.tab2 .subscribe:hover
+{
+	background-color: #47B56C;
+	outline: 1.5px solid green;
+}
+
+
+.tab2 .reset
+{
+	position: absolute;
+	top:93.5%;
+	left: 64%;	
+	width: 7em;
+	height: 2em; 
+	text-align: center;
+	background-color: #56a200;
+	line-height: 2em;
+	font-size: 18px;
+	color: #FFFFFF;
+	outline: none;
+	border: none;
+	text-decoration: none;
+}
+
+.tab2 .reset:hover
+{
+	background-color: #47B56C;
+	outline: 1.5px solid green;
+}
+
+
+
+#msg
+{
+	position: relative;
+	border: 1px solid;
+	width: 5%;
+	height: 2%;
+}
