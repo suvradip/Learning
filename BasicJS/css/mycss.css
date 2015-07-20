@@ -1,0 +1,44 @@
+
+body
+{
+	margin: 5%;
+	padding: 0;
+}
+#mainContainer{
+    width: 75%;
+    margin: 10% 10%;
+   	padding: 2%;
+   	display: inline-block;
+   	float: left;
+}
+
+.blocks{
+    width: 100px;
+    height: 100px;
+    float: left;
+   
+    display: inline;
+    text-align: right;
+}
+
+input[type=text]
+{
+    border:1px solid;
+    width: 50px;
+    /*direction: RTL;*/
+    text-align: center;
+}
+
+
+span
+{	
+	float: left;
+	width: 80px;
+}
+
+/*.plus
+{
+position: absolute;
+
+top: 5%;
+}*/
