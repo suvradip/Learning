@@ -1,0 +1,51 @@
+body
+{
+
+	margin: 0;
+	padding: 0;
+}
+
+.content
+{
+    margin: 5% auto;
+    width: 30%;
+}
+
+
+input[type=submit]
+{
+	width: 6em;
+	height: 3em;
+    background: transparent;
+    border: 1px solid #00CC33;
+    outline:none;
+    cursor:pointer;
+    border-radius: 5px;
+
+}
+
+.content div input[type=text]
+{
+
+	width: 26.8em;
+	height: 2em;
+	text-align: right;
+
+}
+
+.table-div
+{
+	width: 87%;
+}
+
+span
+{
+    position: absolute;
+    font-size: 15px;
+    visibility: hidden;
+}
+
+.right
+{
+ margin-top: 5%;
+}

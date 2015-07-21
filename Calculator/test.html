@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Coded by suvradip</title>
+<link rel="stylesheet" href="stylesheet.css"  />
+<script src="js.js" type="text/javascript">	</script>
+
+</head>
+<body>
+
+<h3>Coded by Suvradip</h3>
+
+
+<div class="content">
+
+<div><span  id="mtxt">M</span><input type="text" id="textbox" /></div>
+
+<div class="table-div">
+
+<table cellpadding="3" cellspacing="3">
+	<tr>
+		<td><input type="submit" value="MC" onclick="memoryOperation(this);" />
+		<td><input type="submit" value="M+" onclick="memoryOperation(this);"/>
+		<td><input type="submit" value="M-" onclick="memoryOperation(this);"/>
+		<td><input type="submit" value="MR" onclick="memoryOperation(this);"/>
+	</tr>
+
+	<tr>
+		<td><input type="submit" value="CLS" onclick="clearTbx();" />
+		<td><input type="submit" value="CAN" onclick="cancel();"/>
+		<td><input type="submit" value="R" onclick="textEnter(this)"/>
+		<td><input type="submit" value="%" onclick="textEnter(this)"/>
+	</tr>
+
+	<tr>
+		<td><input type="submit" value="7" onclick="textEnter(this)" />
+		<td><input type="submit" value="8" onclick="textEnter(this)"/>
+		<td><input type="submit" value="9" onclick="textEnter(this)"/>
+		<td><input type="submit" value="+" onclick="textEnter(this)"/>
+	</tr>
+
+	<tr>
+		<td><input type="submit" value="4" onclick="textEnter(this)"/>
+		<td><input type="submit" value="5" onclick="textEnter(this)"/>
+		<td><input type="submit" value="6" onclick="textEnter(this)"/>
+		<td><input type="submit" value="-" onclick="textEnter(this)"/>
+	</tr>
+
+	<tr>
+		<td><input type="submit" value="1" onclick="textEnter(this)"/>
+		<td><input type="submit" value="2" onclick="textEnter(this)"/>
+		<td><input type="submit" value="3" onclick="textEnter(this)"/>
+		<td><input type="submit" value="*" onclick="textEnter(this)"/>
+	</tr>
+
+	<tr>
+		<td><input type="submit" value="." onclick="textEnter(this)"/>
+		<td><input type="submit" value="0" onclick="textEnter(this)"/>
+		<td><input type="submit" value="=" onclick="calculate();" />
+		<td><input type="submit" value="/" onclick="textEnter(this)"/>
+	</tr>
+
+
+</table>
+</div>
+
+
+  <div class="right">
+
+
+  <pre>
+<u>Short Terms:-  </u>   <br/>
+CLS -> CLEAR Text area.
+CAN -> CANCEL the last Input.
+R   -> REMAINDER of two numbers.
+MC  -> MEMORY CLEAR.
+M+  -> MEMORY Addition.
+M-  -> MEMORY Subtraction.
+MR  -> MEMORY Recall.
+</pre>
+</div>
+
+
+</div>
+
+
+
+
+</body>
+</html>
