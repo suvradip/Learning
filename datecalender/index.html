@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<style type="text/css">
+
+body
+{
+
+	margin: 0;
+	padding: 0;
+}
+
+.content
+{
+    margin: 5% auto;
+   width: 50%;
+}
+
+input[type=submit]
+{
+	width: 10em;
+}
+
+span
+{
+	margin: 2%;
+}
+
+.size1
+{
+	width: 8em;
+}
+</style>
+
+
+<script type="text/javascript">
+
+	var datedifference = 
+	{
+
+	    days: function(d1, d2) {
+	        var t2 = d2.getTime();
+	        var t1 = d1.getTime();
+
+	        return parseInt((t2-t1)/(24*3600*1000));
+	    },
+
+	    weeks: function(d1, d2) {
+	        var t2 = d2.getTime();
+	        var t1 = d1.getTime();
+
+	        return parseInt((t2-t1)/(24*3600*1000*7));
+	    },
+
+	    months: function(d1, d2) {
+	        var d1Y = d1.getFullYear();
+	        var d2Y = d2.getFullYear();
+	        var d1M = d1.getMonth();
+	        var d2M = d2.getMonth();
+
+	        return (d2M+12*d2Y)-(d1M+12*d1Y);
+	    },
+
+	    years: function(d1, d2) {
+	        return d2.getFullYear()-d1.getFullYear();
+	    }
+	}
+
+
+function dateCalc()
+{
+	var temp=new Date();
+
+	var d1=document.getElementById("d1").value;
+	var d2=document.getElementById("d2").value;
+	
+	var date1 = new Date(d1); 
+	var date2 = new Date(d2); 
+
+	//new Date('1945/05/09').valueOf() < new Date('2011/05/09').valueOf()
+
+	if(date1<date2)
+	{
+	temp=date1;
+	date1=date2;
+	date2=temp;
+	}
+
+	
+
+	document.getElementById('s1').innerHTML="Days : "+datedifference.days(date2,date1);
+	document.getElementById('s2').innerHTML="Weeks : "+datedifference.weeks(date2,date1);
+	document.getElementById('s3').innerHTML="Months "+datedifference.months(date2,date1);
+	document.getElementById('s4').innerHTML="Years : "+datedifference.years(date2,date1);
+}
+
+
+function timeCalc()
+{
+
+	 // var select = document.getElementById('footballPlayers');
+  //    alert(select.options[select.selectedIndex].value);
+
+	
+	var t1=document.getElementById("t1").value;
+	var t2=document.getElementById("t2").value;
+
+	var t3=document.getElementById("t3").value;
+	var t4=document.getElementById("t4").value;
+
+
+	if(t1=="")
+	t1=0;
+
+	if(t2=="")
+	t2=0;
+
+	if(t3=="")
+	t3=0;
+
+	if(t4=="")
+	t4=0;
+
+	var date1 = new Date(2000, 0, 1,  t1, t2); 
+	var date2 = new Date(2000, 0, 1,  t3, t4); 
+
+// var date1 = new Date(2000, 0, 1,  9, 0); // 9:00 AM
+// var date2 = new Date(2000, 0, 1, 17, 0); // 5:00 PM
+
+if (date2 < date1) {
+    date2.setDate(date2.getDate() + 1);
+}
+
+var diff = date2 - date1;
+
+
+var msec = diff;
+
+var hh = Math.floor(msec / 1000 / 60 / 60);
+msec -= hh * 1000 * 60 * 60;
+
+var mm = Math.floor(msec / 1000 / 60);
+msec -= mm * 1000 * 60;
+
+var ss = Math.floor(msec / 1000);
+msec -= ss * 1000;
+
+
+	document.getElementById('s5').innerHTML="HH : "+hh;
+	document.getElementById('s6').innerHTML="MM : "+mm;
+	document.getElementById('s7').innerHTML="SS "+ss;
+
+
+
+
+}
+
+
+function timeInterval()
+{
+var t1=document.getElementById("ti1").value;
+var t2=document.getElementById("ti2").value;
+
+var t3=document.getElementById("ti3").value;
+var t4=document.getElementById("ti4").value;
+var t5=document.getElementById("ti5").value;
+
+var d1 = new Date(t1); 
+/*var d2 = new Date(t2); */
+
+/*var d1y1=d1.getFullYear();
+var d1m1=d1.getMonth();
+var d1d1=d1.getDate();
+
+var m1= Date.parse(d1);
+var m2= Date.parse(d2);
+
+var res=m1+m2;
+*/
+
+
+var date1=new Date(d1.getFullYear(),d1.getMonth(),d1.getDate(),t2,t3);
+
+date1.setHours(date1.getHours()+parseInt(t4));
+date1.setMinutes(date1.getMinutes()+parseInt(t5));
+
+
+document.getElementById('s8').innerHTML=date1;
+
+}
+
+</script>
+
+
+</body>
+
+<div class="content">
+
+
+
+
+
+<table border="1" cellspacing="5" cellpadding="5">
+	
+	<tr>
+	<td align="right">Date 1 :</td><td><input id="d1" type="text" placeholder="Year Month Date"/></td> 	
+	<td>Date 2 :</td><td ><input id="d2" type="text" placeholder="Year Month Date"/>
+	</td>
+	</tr>
+
+	<tr>
+		<td ><input type="submit" value="Date Difference" onclick="dateCalc();" /></td>
+		<td colspan="5">
+		<span id="s1"></span>
+		<span id="s2"></span>
+		<span id="s3"></span>
+		<span id="s4"></span>
+		</td>
+	</tr>
+
+
+	<tr>
+		<td align="right">Time 1 :</td>
+		<td><input id="t1" type="text" maxlength="2"  placeholder="HH"/> <input id="t2" type="text" placeholder="MM"/></td> 
+		<td>Time 2 :</td>
+		<td ><input id="t3" type="text" placeholder="HH"/> <input id="t4" type="text" placeholder="MM"/></td>
+	
+	</tr>
+
+	<tr>
+	<td ><input type="submit" value="Time Difference" onclick="timeCalc();" /></td>
+	<td colspan="5">
+	<span id="s5"></span>
+	<span id="s6"></span>
+	<span id="s7"></span>
+	</td>
+	</tr>
+
+	<tr>
+	<td align="right">Field 1 :</td>
+	<td><input type="text" id="ti1"  class="size1" placeholder="Year Month Date"/>
+	<input type="text" id="ti2"  class="size1" placeholder="HH"/>
+	<input type="text" id="ti3"  class="size1" placeholder="MM"/>
+	</td> 	
+	<td>Fiels 2 :</td>
+	<td ><input type="text" id="ti4" class="size1" maxlength="2"  max="12" placeholder="HH"/>
+		<input type="text" id="ti5" class="size1" maxlength="2"  max="12" placeholder="MM"/>
+	</td>
+	
+	</tr>
+
+	<tr>
+	<td ><input type="submit" value="Date Difference"  onclick="timeInterval();" /></td>
+	<td colspan="5">
+	<span id="s8"></span>
+	
+	
+	</td>
+	</tr>
+</table>
+
+</div>
+</html>
