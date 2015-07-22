@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Coded by suvradip</title>
+<link rel="stylesheet" href="stylesheet.css"  />
+<script src="js.js" type="text/javascript">	</script>
+
+</head>
+<body>
+
+<h3>Coded by Suvradip</h3>
+
+
+<div class="content">
+
+<div><span  id="mtxt">M</span><input type="text" id="textbox" placeholder="0" onkeypress="return isNumberKey(event)"/></div>
+
+<div class="table-div">
+
+<table cellpadding="3" cellspacing="3">
+	<tr>
+		<td><input type="submit" value="MC" title="Memory Clear" onclick="memoryOperation(this);" />
+		<td><input type="submit" value="M+" title="Memory Plus" onclick="memoryOperation(this);"/>
+		<td><input type="submit" value="M-" title="Memory Minus" onclick="memoryOperation(this);"/>
+		<td><input type="submit" value="MR" title="Memory Recall" onclick="memoryOperation(this);"/>
+	</tr>
+
+	<tr>
+		<td><input type="submit" value="CLS" title="Clear" onclick="clearTbx();" />
+		<td><input type="submit" value="CAN" title="Cancel" onclick="cancel();"/>
+		<td><input type="submit" value="R" title="Remainder" onclick="textEnter(this)"/>
+		<td><input type="submit" value="%" title="Percentage" onclick="textEnter(this)"/>
+	</tr>
+
+	<tr>
+		<td><input type="submit" value="7" title="Seven" onclick="textEnter(this)" />
+		<td><input type="submit" value="8" title="Eight" onclick="textEnter(this)"/>
+		<td><input type="submit" value="9" title="Nine" onclick="textEnter(this)"/>
+		<td><input type="submit" value="+" title="Plus" onclick="textEnter(this)"/>
+	</tr>
+
+	<tr>
+		<td><input type="submit" value="4" title="Four" onclick="textEnter(this)"/>
+		<td><input type="submit" value="5" title="Five" onclick="textEnter(this)"/>
+		<td><input type="submit" value="6" title="Six" onclick="textEnter(this)"/>
+		<td><input type="submit" value="-" title="Minus" onclick="textEnter(this)"/>
+	</tr>
+
+	<tr>
+		<td><input type="submit" value="1" title="One" onclick="textEnter(this)"/>
+		<td><input type="submit" value="2" title="Two"	onclick="textEnter(this)"/>
+		<td><input type="submit" value="3" title="Three"	onclick="textEnter(this)"/>
+		<td><input type="submit" value="*" title="Multiplication"	onclick="textEnter(this)"/>
+	</tr>
+
+	<tr>
+		<td><input type="submit" value="." title="Dot"	onclick="textEnter(this)"/>
+		<td><input type="submit" value="0" title="Zero"	onclick="textEnter(this)"/>
+		<td><input type="submit" value="=" title="Equal"	onclick="calculate();" />
+		<td><input type="submit" value="/" title="Divide"	onclick="textEnter(this)"/>
+	</tr>
+
+
+</table>
+</div>
+
+
+  <div class="right">
+
+
+  <pre>
+<u>Short Terms:-  </u>   <br/>
+CLS -> CLEAR Text area.
+CAN -> CANCEL the last Input.
+R   -> REMAINDER of two numbers.
+MC  -> MEMORY CLEAR.
+M+  -> MEMORY Addition.
+M-  -> MEMORY Subtraction.
+MR  -> MEMORY Recall.
+</pre>
+</div>
+
+
+</div>
+
+
+
+
+</body>
+</html>

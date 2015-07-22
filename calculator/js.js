@@ -157,7 +157,7 @@ function clearTbx()
 function cancel()
 {
  var t=document.getElementById('textbox').value;
- var pos=0, s="";
+/* var pos=0, s="";
  for(var i=t.length;i>0;i--)
  {
    if(t[i]=="+" || t[i]=="*" || t[i]=="-" || t[i]=="/")
@@ -172,7 +172,9 @@ function cancel()
   s+=t[i];
  }
 
-document.getElementById('textbox').value=s;
+document.getElementById('textbox').value=s;*/
+
+document.getElementById('textbox').value=t.substring(0,t.length -1);
 
 }
 
@@ -227,5 +229,24 @@ function memoryOperation(op)
        document.getElementById('textbox').value=MEMORY;
        sm.style.visibility="visible";
       }
+
+}
+
+
+function isNumberKey(e)
+ {
+   
+    var unicode=e.charCode? e.charCode : e.keyCode
+   
+    if (unicode!=8)//if the key isn't the backspace key (which we should allow)
+    { 
+        if (unicode>45 && unicode <57) //if not a number
+            return true ;
+        else if(unicode==42 || unicode==43)
+            return true ;
+        else 
+            return false;  
+         
+    }
 
 }
