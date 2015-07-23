@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+	
+
+	body
+	{
+		margin: 0;
+	}
+
+	div
+	{
+		margin: 10% 30%;
+		width: 100%;
+	}
+
+</style>
+
+<script type="text/javascript">
+	
+
+function numbers(e){
+	    var unicode=e.charCode? e.charCode : e.keyCode;
+	    if (unicode!=8 || unicode!=46){ //if the key isn't the backspace key (which we should allow)
+	        if(unicode == 46){// if a decimal point
+	        	return true;
+	        }
+	        if (unicode<48||unicode>57) //if not a number
+	            return false ;//disable key press
+	   	}
+	}
+
+
+function myCalculation()
+{
+	//at first clearing the Error Message.
+	document.getElementById('msg').innerHTML="";
+
+	//Getting all the values from input text field
+	var p=document.getElementById('loan').value;
+
+	
+	var r=document.getElementById('myrete').value / 1200; // User gives the input as month per Interes, so i convert it years per interest
+	var t=document.getElementById('time').value;
+	var e=document.getElementById('emi').value;
+
+
+
+
+
+	//condition for calculate EMI
+	if(p.length!==0 && t.length!==0 && r.length!==0 )
+		{
+			
+			document.getElementById('emi').value= Math.round(p * r * Math.pow((1+r),t)/ ((Math.pow((1+r),t))-1));
+		}
+
+		//condtion for calculate Princile or Loan Amount
+		else if(r.length!==0 && t.length!==0 && e.length!==0)
+		 {
+			document.getElementById('loan').value = Math.round(e * ((Math.pow(1+r,t))-1)/(r*(Math.pow((1+r),t)))); 
+		 }
+
+		 //condtion for calculate Time.
+		else if(p.length!==0 && r.length!==0 && e.length!==0)
+		 {
+		 	var res=Math.ceil((Math.log((e)/(e-(p*r))))/(Math.log(1+r))); 
+
+		 	////condtion, if time becomes Very big.
+		 	if(isNaN(res))	
+			document.getElementById('msg').innerHTML ="can't possible."; 
+			else
+			document.getElementById('time').value =res; 	
+		}
+		else
+		{
+			document.getElementById('msg').innerHTML = 'Incorrenct Data Given, Please correct it then calculate!!';	
+		}
+
+}
+
+
+
+// to reset all fields
+function reset()
+{
+	var p=document.getElementById('loan').value="";
+	var r=document.getElementById('myrete').value="";
+	var t=document.getElementById('time').value="";
+	var e=document.getElementById('emi').value="";
+	document.getElementById('msg').innerHTML="";
+}
+
+</script>
+
+</head>
+<body>
+
+<div>
+
+	<table border="0">
+		
+
+	<tr>
+		<td>Loan Amount(Rs.) :</td> <td><input type="text" id="loan" onkeypress="return numbers(event)" placeholder="Enter Here Amount" /></td>
+	</tr>
+
+	<tr>
+		<td>Rate(%) :</td> <td><input type="text" id="myrete" onkeypress="return numbers(event)" value="10" placeholder="Enter Here Rate"   /></td>
+	</tr>
+
+	<tr>
+		<td>Period of Payement(Months) :</td> <td><input type="text" id="time" onkeypress="return numbers(event)"  placeholder="Enter Here Time in Months" /></td>
+	</tr>
+
+	<tr>
+		<td>EMI(Rs.) : </td> <td><input type="text" id="emi" onkeypress="return numbers(event)" placeholder="Enter Here Amount" /></td>
+	</tr>
+
+
+	<tr>
+
+	<tr>
+		<td ><input type="submit" value="Calculate" onclick="myCalculation();" /></td>
+		<td><input type="submit" value="Reset" onclick="reset();"/></td>
+		<td><span id="msg"></span></td>
+	</tr>
+
+	</table>
+
+
+</div>
+
+</body>
+</html>
