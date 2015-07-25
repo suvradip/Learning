@@ -40,7 +40,7 @@
 
 
 	var body = document.body;
-	//createElement("div", body, {id:"aaaa", xyz: "bbb"}, {backgroundColor:"red",width:"200px", height: "300px"}, {click: function () {console.log("aa")}, hover: function(){console.log("bbb")}}, "Suvradip")
+	createElement("div", body, {}, {}, {}, "Coded by Suvradip Saha");
 
 	var mainContainer = createElement("div", body, {id:"mainContainer"}, { padding:"0 0 0 30%"}, {} );
 	
