@@ -1,10 +1,9 @@
 
 
-
 (function ()
 {
 
-	function createElement(tagName, parentElement, attrList, styleObj, eventObj, label)
+	function createElement(tagName, parentElement, attrObj, styleObj, eventObj, label)
 	{
 		var element=document.createElement(tagName), 
 		attrName, eventName, styleName;
@@ -12,10 +11,11 @@
 		typeof label != "undefined" && element.appendChild(document.createTextNode(label));
 
 
-		if(attrList!=null)
+
+		if(attrObj!=null)
 		{	
-			for(attrName in attrList)
-			element.setAttribute(attrName, attrList[attrName]);
+			for(attrName in attrObj)
+			element.setAttribute(attrName, attrObj[attrName]);
 		}
 
 		if(eventObj!=null)
@@ -47,7 +47,7 @@
 	var block = createElement("div", mainContainer, {id:"block"}, {width:"50%", height:"50px", padding:"2"} );
 
 	createElement("input", block, {id:"basicCalc", type:"radio", name:"selectors"}, {},{click: function () {renderEvent(this.id)}} );
-	createElement("span",  block, {}, {},{}, "Basic Calculator");
+	createElement("span",  block, {undefined}, {},{}, "Basic Calculator");
 
 	createElement("input", block, {id:"dateCalc", type:"radio", name:"selectors"}, {},{click: function () {renderEvent(this.id)}} );
 	createElement("span",  block, {}, {},{}, "Date/Time Calculator");
@@ -87,24 +87,16 @@
 
 	function basicCalculator()
 	{
-		createElement("input", renderingArea, {type:"text", id:"textbox", placeholder:"0" }, {width:"26.8em", height:"2em", textAlign:"right"},{}); 
+	   createElement("span", renderingArea, {id:"mtxt"}, {position: "absolute", fontSize: "15px", visibility: "hidden"}, {}, "M");
+	   createElement("input", renderingArea, {type:"text", id:"textbox", placeholder:"0" }, {width:"26.8em", height:"2em", textAlign:"right"},{}); 
 
-		var T = document.createElement("TABLE");
-	    T.setAttribute("id", "myTable");
-	    renderingArea.appendChild(T);
-
-	   var myTable=  createElement("table",renderingArea, {id:"myTable"}, {}, {})	
+	   var myTable=  createElement("table",renderingArea, {id:"myTable"}, {}, {});	
 	   
 
-		function insertRowCOlumn(rowCon, trPos, tdPos, BText, myFunction)
+		function insertRowCOlumn(rowCreateCondition, trPos, tdPos, BText, myFunction)
 		{
-			if(rowCon)
-			{
-			table = document.getElementById("myTable");	
-			var tr = document.createElement("TR");
-		    tr.setAttribute("id", trPos);
-		    table.appendChild(tr);
-			}	
+			if(rowCreateCondition)
+		    createElement("tr", myTable, {id:trPos}, {}, {});
 		
 		    var td = document.createElement("TD");
 		    createElement("input",td,{type:"submit", value:BText},{width: "6em", height: "3em", background: "transparent",borderRadius: "5px", border: "1px solid #00CC33",outline:"none", cursor:"pointer" },{click: function () {myFunction(this)}});
@@ -314,28 +306,28 @@
 		function memoryOperation(op)
 		{
 		  var v =document.getElementById('textbox').value;
-		  //var sm=document.getElementById('mtxt');
+		  var sm=document.getElementById('mtxt');
 
 		      if(op.value=="M+")
 		      {
 		         MEMORY+=parseFloat(v);
-		        // sm.style.visibility="visible";
+		         sm.style.visibility="visible";
 		      }
 
 		      else if(op.value=="M-")
 		      {
 		        MEMORY-=parseFloat(v);
-		       // sm.style.visibility="visible";
+		        sm.style.visibility="visible";
 		      }
 		      else if(op.value=="MC")
 		      {
 		        MEMORY=0;
-		       // sm.style.visibility="hidden";
+		        sm.style.visibility="hidden";
 		      }
 		      else if(op.value=="MR")
 		      {
 		       document.getElementById('textbox').value=MEMORY;
-		       //sm.style.visibility="visible";
+		       sm.style.visibility="visible";
 		      }
 
 		}
@@ -362,7 +354,7 @@
 
 					   createElement("span",  div1, {}, {}, {}, "Date 2 : ");
 					   createElement("input", div1, {id:"d2", type:"text", placeholder:"Year Month Date"}, {}, {});
-					   createElement("input", div1, { type:"submit"}, {}, {click: function(){ dateCalc() }});
+					   createElement("input", div1, { type:"submit", value:"Date Difference"}, {}, {click: function(){ dateCalc() }});
 					   createElement("span",  div1, { id:"s1"}, { marginLeft:"3%", marginRight:"2%"}, {});
 					   createElement("span",  div1, { id:"s2"}, {marginRight:"2%"}, {});
 					   createElement("span",  div1, { id:"s3"}, {marginRight:"2%"}, {});
@@ -382,7 +374,7 @@
 					   createElement("input", div3, {id:"t3", type:"text", placeholder:"Time 2 HH"}, {}, {});
 					   createElement("input", div3, {id:"t4", type:"text", placeholder:"Time 2 MM"}, {}, {});
 
-					   createElement("input", timeDiffDiv, { type:"submit"}, {}, {click: function(){ timeCalc() }});
+					   createElement("input", timeDiffDiv, { type:"submit", value:"Time Difference"}, {}, {click: function(){ timeCalc() }});
 					   createElement("span",  timeDiffDiv, { id:"s5"}, { marginLeft:"3%", marginRight:"2%"}, {});
 					   createElement("span",  timeDiffDiv, { id:"s6"}, {marginRight:"2%"}, {});
 					   createElement("span",  timeDiffDiv, { id:"s7"}, {marginRight:"2%"}, {});
@@ -402,7 +394,7 @@
 					   createElement("input", div5, {id:"ti4", type:"text", placeholder:"HH"}, {width:"9em", marginLeft:"3%", marginRight:"3%"}, {});
 					   createElement("input", div5, {id:"ti5", type:"text", placeholder:"MM"}, {width:"9em"}, {});
 
-					   createElement("input", timeIntDiv, { type:"submit"}, {}, {click: function(){ timeInterval() }});
+					   createElement("input", timeIntDiv, { type:"submit", value:"Calculate new date"}, {}, {click: function(){ timeInterval() }});
 					   createElement("span",  timeIntDiv, { id:"s8"}, {marginLeft:"2%"}, {});		
 
 
