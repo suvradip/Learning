@@ -30,12 +30,12 @@ else
 function calculate()
 {
 
-		var store=document.getElementById('textbox').value+"$";
-		var numbers=[];
-		var operators=[];
-		var p=0,c=0,f="", f1=false;
-		for(var i=0; i<store.length;i++)
-		{
+    var store=document.getElementById('textbox').value+"$";
+    var numbers=[];
+    var operators=[];
+    var p=0,c=0,f="";
+    for(var i=0; i<store.length;i++)
+    {
 
              if(store[i]=="+" ||store[i]=="-"||store[i]=="*"||store[i]=="/"||store[i]=="%"||store[i]=="R" ||store[i]=="$" )
              {
@@ -45,13 +45,13 @@ function calculate()
              }
 
 
-		}
+    }
 
-          //	console.log(operators);
+          //  console.log(operators);
 
-        for(var i=0;i<operators.length;i++)
+        for(var r=0;r<operators.length;r++)
         {
-           c=operators[i];
+           c=operators[r];
             var num="";
           for(var j=p; j<c;j++)
           {
@@ -110,7 +110,7 @@ function sub(numbers)
     {
 
 
-       if(p!=0)
+       if(p!==0)
        {
             res-=numbers[i];
        }else
@@ -130,7 +130,7 @@ function div(numbers)
    var res, p=0;
     for(var i=0; i<numbers.length;i++)
     {
-       if(p!=0)
+       if(p!==0)
        {
             res/=numbers[i];
        }else
@@ -148,8 +148,8 @@ function div(numbers)
 
 function clearTbx()
 {
-	var v1=document.getElementById('textbox');
-	v1.value="";
+  var v1=document.getElementById('textbox');
+  v1.value="";
     mydot=true;
 }
 
@@ -236,7 +236,7 @@ function memoryOperation(op)
 function isNumberKey(e)
  {
    
-    var unicode=e.charCode? e.charCode : e.keyCode
+    var unicode=e.charCode? e.charCode : e.keyCode;
    
     if (unicode!=8)//if the key isn't the backspace key (which we should allow)
     { 
