@@ -69,7 +69,7 @@ span
 	    years: function(d1, d2) {
 	        return d2.getFullYear()-d1.getFullYear();
 	    }
-	}
+	};
 
 
 function dateCalc()
@@ -114,16 +114,16 @@ function timeCalc()
 	var t4=document.getElementById("t4").value;
 
 
-	if(t1=="")
+	if(t1==="")
 	t1=0;
 
-	if(t2=="")
+	if(t2==="")
 	t2=0;
 
-	if(t3=="")
+	if(t3==="")
 	t3=0;
 
-	if(t4=="")
+	if(t4==="")
 	t4=0;
 
 	var date1 = new Date(2000, 0, 1,  t1, t2); 

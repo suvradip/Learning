@@ -1,3 +1,14 @@
+// Hello.
+//
+// This is JSHint, a tool that helps to detect errors and potential
+// problems in your JavaScript code.
+//
+// To start, simply enter some JavaScript anywhere on this page. Your
+// report will appear on the right side.
+//
+// Additionally, you can toggle specific options in the Configure
+// menu.
+
 
 
 (function ()
@@ -8,27 +19,36 @@
 		var element=document.createElement(tagName), 
 		attrName, eventName, styleName;
 
-		typeof label != "undefined" && element.appendChild(document.createTextNode(label));
+		//typeof label !== "undefined" && element.appendChild(document.createTextNode(label));
+		if(typeof label != "undefined")
+		element.appendChild(document.createTextNode(label));	
 
-
-
-		if(attrObj!=null)
+		if(attrObj!==null)
 		{	
 			for(attrName in attrObj)
+      {
+			if (attrObj.hasOwnProperty(attrName))
 			element.setAttribute(attrName, attrObj[attrName]);
+      }
 		}
 
-		if(eventObj!=null)
+		if(eventObj!==null)
 		{
 			for( eventName in eventObj)
+      {
+      if (eventObj.hasOwnProperty(eventName)) 
 			element.addEventListener(eventName, eventObj[eventName]);	
+      }
 		}
 
 
-		if(styleObj!=null)
+		if(styleObj!==null)
 		{
 			for(styleName in styleObj)
+      {
+       if (styleObj.hasOwnProperty(styleName))  
 			element.style[styleName]=styleObj[styleName];
+      }
 		}
 		
 
@@ -46,13 +66,13 @@
 	
 	var block = createElement("div", mainContainer, {id:"block"}, {width:"50%", height:"50px", padding:"2"} );
 
-	createElement("input", block, {id:"basicCalc", type:"radio", name:"selectors"}, {},{click: function () {renderEvent(this.id)}} );
-	createElement("span",  block, {undefined}, {},{}, "Basic Calculator");
+	createElement("input", block, {id:"basicCalc", type:"radio", name:"selectors"}, {},{click: function () {renderEvent(this.id);}} );
+	createElement("span",  block, {}, {},{}, "Basic Calculator");
 
-	createElement("input", block, {id:"dateCalc", type:"radio", name:"selectors"}, {},{click: function () {renderEvent(this.id)}} );
+	createElement("input", block, {id:"dateCalc", type:"radio", name:"selectors"}, {},{click: function () {renderEvent(this.id);}} );
 	createElement("span",  block, {}, {},{}, "Date/Time Calculator");
 
-	createElement("input", block, {id:"mortCalc", type:"radio", name:"selectors"}, {},{click: function () {renderEvent(this.id)}} );
+	createElement("input", block, {id:"mortCalc", type:"radio", name:"selectors"}, {},{click: function () {renderEvent(this.id);}} );
 	createElement("span",  block, {}, {},{}, "Mortgage Calculator");
 
 
@@ -99,7 +119,7 @@
 		    createElement("tr", myTable, {id:trPos}, {}, {});
 		
 		    var td = document.createElement("TD");
-		    createElement("input",td,{type:"submit", value:BText},{width: "6em", height: "3em", background: "transparent",borderRadius: "5px", border: "1px solid #00CC33",outline:"none", cursor:"pointer" },{click: function () {myFunction(this)}});
+		    createElement("input",td,{type:"submit", value:BText},{width: "6em", height: "3em", background: "transparent",borderRadius: "5px", border: "1px solid #00CC33",outline:"none", cursor:"pointer" },{click: function () {myFunction(this);}});
 		    document.getElementById(trPos).appendChild(td);
 		}
 	
@@ -166,7 +186,7 @@
 			var store=document.getElementById('textbox').value+"$";
 			var numbers=[];
 			var operators=[];
-			var p=0,c=0,f="", f1=false;
+			var p=0,c=0,f="";
 			for(var i=0; i<store.length;i++)
 			{
 
@@ -180,9 +200,9 @@
 
 			}
 
-	        for(var i=0;i<operators.length;i++)
+	        for(var r=0;r<operators.length;r++)
 	        {
-	           c=operators[i];
+	           c=operators[r];
 	            var num="";
 	          for(var j=p; j<c;j++)
 	          {
@@ -233,7 +253,7 @@
 		   var res, p=0;
 		    for(var i=0; i<numbers.length;i++)
 		    {
-		       if(p!=0)
+		       if(p!==0)
 		       {
 		            res-=numbers[i];
 		       }else
@@ -253,7 +273,7 @@
 		   var res, p=0;
 		    for(var i=0; i<numbers.length;i++)
 		    {
-		       if(p!=0)
+		       if(p!==0)
 		       {
 		            res/=numbers[i];
 		       }else
@@ -354,7 +374,7 @@
 
 					   createElement("span",  div1, {}, {}, {}, "Date 2 : ");
 					   createElement("input", div1, {id:"d2", type:"text", placeholder:"Year Month Date"}, {}, {});
-					   createElement("input", div1, { type:"submit", value:"Date Difference"}, {}, {click: function(){ dateCalc() }});
+					   createElement("input", div1, { type:"submit", value:"Date Difference"}, {}, {click: function(){ dateCalc(); }});
 					   createElement("span",  div1, { id:"s1"}, { marginLeft:"3%", marginRight:"2%"}, {});
 					   createElement("span",  div1, { id:"s2"}, {marginRight:"2%"}, {});
 					   createElement("span",  div1, { id:"s3"}, {marginRight:"2%"}, {});
@@ -374,7 +394,7 @@
 					   createElement("input", div3, {id:"t3", type:"text", placeholder:"Time 2 HH"}, {}, {});
 					   createElement("input", div3, {id:"t4", type:"text", placeholder:"Time 2 MM"}, {}, {});
 
-					   createElement("input", timeDiffDiv, { type:"submit", value:"Time Difference"}, {}, {click: function(){ timeCalc() }});
+					   createElement("input", timeDiffDiv, { type:"submit", value:"Time Difference"}, {}, {click: function(){ timeCalc(); }});
 					   createElement("span",  timeDiffDiv, { id:"s5"}, { marginLeft:"3%", marginRight:"2%"}, {});
 					   createElement("span",  timeDiffDiv, { id:"s6"}, {marginRight:"2%"}, {});
 					   createElement("span",  timeDiffDiv, { id:"s7"}, {marginRight:"2%"}, {});
@@ -394,7 +414,7 @@
 					   createElement("input", div5, {id:"ti4", type:"text", placeholder:"HH"}, {width:"9em", marginLeft:"3%", marginRight:"3%"}, {});
 					   createElement("input", div5, {id:"ti5", type:"text", placeholder:"MM"}, {width:"9em"}, {});
 
-					   createElement("input", timeIntDiv, { type:"submit", value:"Calculate new date"}, {}, {click: function(){ timeInterval() }});
+					   createElement("input", timeIntDiv, { type:"submit", value:"Calculate new date"}, {}, {click: function(){ timeInterval(); }});
 					   createElement("span",  timeIntDiv, { id:"s8"}, {marginLeft:"2%"}, {});		
 
 
@@ -430,7 +450,7 @@
 			    years: function(d1, d2) {
 			        return d2.getFullYear()-d1.getFullYear();
 			    }
-			}
+			};
 
 
 			function dateCalc()
@@ -471,16 +491,16 @@
 				var t4=document.getElementById("t4").value;
 
 
-				if(t1=="")
+				if(t1==="")
 				t1=0;
 
-				if(t2=="")
+				if(t2==="")
 				t2=0;
 
-				if(t3=="")
+				if(t3==="")
 				t3=0;
 
-				if(t4=="")
+				if(t4==="")
 				t4=0;
 
 				var date1 = new Date(2000, 0, 1,  t1, t2); 
@@ -558,7 +578,7 @@ function mortgageCalculator()
 	createElement("input", div4, {type:"text", id:"emi",    placeholder:"Enter Here Amount" }, {}, {});
 
 	var div5 = createElement("div", renderingArea, {id:"div4", width:"100%"}, {}, {});
-	createElement("input", div5, {type:"submit", value:"Calculate" }, {marginTop:"3%"}, {click: function(){myCalculation()}});
+	createElement("input", div5, {type:"submit", value:"Calculate" }, {marginTop:"3%"}, {click: function(){myCalculation();}});
 	createElement("span", div5, {id:"msg"}, {}, {});
 
 
@@ -606,4 +626,4 @@ function mortgageCalculator()
 
 
 
-})()
+})();
