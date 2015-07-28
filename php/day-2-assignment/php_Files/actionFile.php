@@ -3,7 +3,7 @@
 session_start();
 
 // define variables and set to empty values
-$_SESSION["nameErr"] = $_SESSION["emailErr"] = $_SESSION["phoneErr"] = $_SESSION["feedbackErr"] = $_SESSION["sexErr"] = $_SESSION["countryErr"] = $_SESSION["stateErr"]= $_SESSION["emailCheck"] = $_SESSION["msg"] = "";
+$_SESSION["nameErr"] = $_SESSION["emailErr"] = $_SESSION["phoneErr"] = $_SESSION["feedbackErr"] = $_SESSION["sexErr"] = $_SESSION["countryErr"] = $_SESSION["stateErr"]= $_SESSION["emailCheck"] = $_SESSION["phoneCheck"] = $_SESSION["msg"] = "";
 $_SESSION["name"] = $_SESSION["email"] = $_SESSION["phone"] = $_SESSION["feedback"] = $_SESSION["sex"] = $_SESSION["country"] = $_SESSION["state"]="";
 
    
@@ -68,6 +68,11 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 
+
+$phone = test_input($_POST["phone"]);
+if (strlen($phone)!=10) {
+  $_SESSION["phoneCheck"] = "Invalid"; 
+}
 
 
 
