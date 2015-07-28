@@ -84,7 +84,9 @@ session_start();
 								<tr>
 									<td><span>Phone</span></td>
 									<td><input maxlength="10" name="phone"   title="Indian(+91) 10 digit Mobile number"  id="phone" type="text" class="text_input_style text_input_bgcolor" onkeypress="return numbercheck(event)" onblur="checkIndia();" <?php if(empty($_SESSION["phoneErr"])) { echo " value=\"". $_SESSION["phone"] ."\" ";} ?> /></td>
-									<td><?php if(!empty($_SESSION["phoneErr"])) { echo " <span class=\"error\">required</span> ";} ?></td>
+									<td><?php if(!empty($_SESSION["phoneErr"])) { echo " <span class=\"error\">required</span> ";} ?>
+										<?php if(!empty($_SESSION["phoneCheck"])) { echo " <span class=\"error\">invalid</span> ";} ?>
+									</td>
 								</tr>
 								<tr>
 									<td><span>Sex</span></td>
@@ -192,7 +194,7 @@ session_start();
 		$_SESSION["toggle_flag"]=false;
 		
 
-	$_SESSION["nameErr"] = $_SESSION["emailErr"] = $_SESSION["phoneErr"] = $_SESSION["feedbackErr"] = $_SESSION["sexErr"] = $_SESSION["countryErr"]  = $_SESSION["stateErr"] = $_SESSION["emailCheck"] = $_SESSION["msg"] = "";
+	$_SESSION["nameErr"] = $_SESSION["emailErr"] = $_SESSION["phoneErr"] = $_SESSION["feedbackErr"] = $_SESSION["sexErr"] = $_SESSION["countryErr"]  = $_SESSION["stateErr"] = $_SESSION["emailCheck"] = $_SESSION["phoneCheck"] = $_SESSION["phoneCheck"] = $_SESSION["msg"] = "";
     $_SESSION["name"] = $_SESSION["email"] = $_SESSION["phone"] = $_SESSION["feedback"] = $_SESSION["sex"] = $_SESSION["country"]  = $_SESSION["state"]="";
 ?>
 
@@ -215,6 +217,7 @@ session_start();
 </script>
 <?php
 }
+
 
 
 
