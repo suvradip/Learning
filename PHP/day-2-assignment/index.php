@@ -71,21 +71,21 @@ session_start();
 								<tr>
 									<td><span>Name</span></td>
 									<td><input id="name" name="name" type="text" class="text_input_style text_input_bgcolor"  <?php if(empty($_SESSION["nameErr"])) { echo " value=\"". $_SESSION["name"] ."\" ";} ?>  /></td>
-									<td><?php if(!empty($_SESSION["nameErr"])) { echo " <span class=\"error\">required</span> ";} ?></td>
+									<td><?php if( isset($_SESSION["nameErr"]) && !empty($_SESSION["nameErr"])) { echo " <span class=\"error\">required</span> ";} ?></td>
 								</tr>
 								<tr>
 									<td><span>Email</span></td>
 									<td><input id="email" name="email" type="email" class="text_input_style text_input_bgcolor"  <?php if(empty($_SESSION["emailErr"])) { echo " value=\"". $_SESSION["email"] ."\" ";} ?>  /></td>
-									<td><?php if(!empty($_SESSION["emailErr"])) { echo " <span class=\"error\">required</span> ";} ?>
-										<?php if(!empty($_SESSION["emailCheck"])) { echo " <span class=\"error\">invalid</span> ";} ?>
+									<td><?php if(isset($_SESSION["emailErr"]) && !empty($_SESSION["emailErr"])) { echo " <span class=\"error\">required</span> ";} ?>
+										<?php if(isset($_SESSION["emailCheck"]) &&  !empty($_SESSION["emailCheck"])) { echo " <span class=\"error\">invalid</span> ";} ?>
 
 									</td>
 								</tr>
 								<tr>
 									<td><span>Phone</span></td>
 									<td><input maxlength="10" name="phone"   title="Indian(+91) 10 digit Mobile number"  id="phone" type="text" class="text_input_style text_input_bgcolor" onkeypress="return numbercheck(event)" onblur="checkIndia();" <?php if(empty($_SESSION["phoneErr"])) { echo " value=\"". $_SESSION["phone"] ."\" ";} ?> /></td>
-									<td><?php if(!empty($_SESSION["phoneErr"])) { echo " <span class=\"error\">required</span> ";} ?>
-										<?php if(!empty($_SESSION["phoneCheck"])) { echo " <span class=\"error\">invalid</span> ";} ?>
+									<td><?php if( isset($_SESSION["phoneErr"]) && !empty($_SESSION["phoneErr"])) { echo " <span class=\"error\">required</span> ";} ?>
+										<?php if( isset($_SESSION["phoneCheck"]) && !empty($_SESSION["phoneCheck"])) { echo " <span class=\"error\">invalid</span> ";} ?>
 									</td>
 								</tr>
 								<tr>
@@ -94,7 +94,7 @@ session_start();
 										<input type="radio" name="sex" value="Male" <?php if(empty($_SESSION["sexErr"]) && $_SESSION["sex"]=="Male" ) { echo " checked";} ?> /><span>Male</span>
 										<input type="radio" name="sex" value="Female" <?php if(empty($_SESSION["sexErr"]) && $_SESSION["sex"]=="Female" ) { echo " checked";} ?>  /><span>Female</span>
 									</td>
-									<td><?php if(!empty($_SESSION["sexErr"])) { echo " <span class=\"error\">required</span> ";} ?></td>
+									<td><?php if(isset($_SESSION["sexErr"]) && !empty($_SESSION["sexErr"])) { echo " <span class=\"error\">required</span> ";} ?></td>
 								</tr>
 								<tr>
 									<td><span>Interest</span></td>
@@ -131,7 +131,7 @@ session_start();
 									<td>
 										<select id="state" name="state" class="text_input_style text_input_bgcolor"  disabled>
 									    <option value=""></option>
-									    <?php if(empty($_SESSION["stateErr"])) { echo " <option value=\"".$_SESSION["state"]."\" selected>".$_SESSION["state"]."</option>";} ?>
+									    <?php if( isset($_SESSION["stateErr"]) && empty($_SESSION["stateErr"])) { echo " <option value=\"".$_SESSION["state"]."\" selected>".$_SESSION["state"]."</option>";} ?>
 									    </select>
 									</td>
 								</tr>
@@ -140,7 +140,7 @@ session_start();
 									<td>
 									<textarea name="feedback" spellcheck="true" id="feedback" type="text" class="text_textarea_style text_input_style text_input_bgcolor" ><?php if(empty($_SESSION["feedbackErr"])) {echo trim($_SESSION["feedback"]);} ?></textarea>
 									</td> 
-									<td valign="top"><?php if(!empty($_SESSION["feedbackErr"])) { echo " <span class=\"error\">*</span> ";} ?></td>
+									<td valign="top"><?php if( isset($_SESSION["feedbackErr"]) && !empty($_SESSION["feedbackErr"])) { echo " <span class=\"error\">*</span> ";} ?></td>
 								</tr>
 							</table>
 						</div><!-- end of con2_3 -->

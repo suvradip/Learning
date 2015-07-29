@@ -83,35 +83,32 @@ if($_POST['name'] !=null && $_POST['email']!=null && $_POST['phone']!=null && $_
 
 	$_SESSION["toggle_flag"]=true;
 	
-	$data=array(
 
-	'name'=>$_POST['name'],
-	'email'=>$_POST['email'],
-	'phone'=>$_POST['phone'],
-	'sex'=>$_POST['sex'],
-	'country'=>$_POST['country'],
-	'state'=>$_POST['state'],
-	'feedback'=>$_POST['feedback'],
-	'games'=>$_POST['games'],
-	'movies'=>$_POST['movies'],
-	'reading'=>$_POST['reading']
-);
+	$csvData=$_POST['name'].",".$_POST['email'].",".$_POST['phone'].",".$_POST['sex'].",".$_POST['country'].",".$_POST['state'].",".$_POST['feedback'].",".$_POST['games'][0].",".$_POST['games'][1].",".$_POST['games'][2].",".$_POST['movies'][0].",".$_POST['movies'][1].",".$_POST['movies'][2].",".$_POST['reading'][0].",".$_POST['reading'][1].",".$_POST['reading'][2];
 
-	//$myfile = fopen("userData_".$_POST['name'].".txt", "w");
 
-	if(file_get_contents("userData.txt"))
+	if(file_get_contents("userData.csv"))
 	{
-		$myfile = fopen("userData.txt", "a+");
+		$myfile = fopen("userData.csv", "a+");
 		fwrite($myfile, ",\n");
-		fwrite($myfile, json_encode($data));
+		fwrite($myfile, $csvData);
+		
 	}
 	else
 	{
-		$myfile = fopen("userData.txt", "w");
-		fwrite($myfile, json_encode($data));
+	$myfile = fopen("userData.csv", "a+");
+
+	$csvDataHeading="Name,Email,Phone,Sex,Country,State,Feedback,Game_1,Game_2,Game_3,Movie_1,Movie_2,Movie_3,Reading_1,Reading_2,Reading_3";
+	fwrite($myfile, ",\n");
+	fwrite($myfile, $csvDataHeading);
+	fwrite($myfile, ",\n");
+	fwrite($myfile, $csvData);
+
+
 	} 
 
 	
+
 	
 
 
@@ -128,11 +125,9 @@ else
 }
 
 
-	header($target);  //Redirect browser 
+	/*header($target);  //Redirect browser 
 	exit();
-
-
-
+*/
 
 
 ?>
