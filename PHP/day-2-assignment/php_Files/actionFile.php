@@ -125,9 +125,9 @@ else
 }
 
 
-	/*header($target);  //Redirect browser 
+	header($target);  //Redirect browser 
 	exit();
-*/
+
 
 
 ?>
