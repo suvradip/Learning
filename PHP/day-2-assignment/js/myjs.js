@@ -377,3 +377,10 @@ var states = new Array(2)
             phone.style.borderColor = "red";
         
     }
+
+    
+    function removeOptions()
+    {
+         document.getElementById("state").innerHTML="";
+          document.getElementById("state").disabled=true;
+    }
