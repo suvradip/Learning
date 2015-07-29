@@ -157,21 +157,21 @@ session_start();
 <div id="overlay">
      <div>
           <p id="cb1_sub">
-	        <span>Football</span> <input type="checkbox" name="games[]" value="Football" id="cb1_sub_1"/>
-	        <span>Cricket</span>  <input type="checkbox" name="games[]" value="cricket" id="cb1_sub_2"/>
-	        <span>Hokey</span> 	  <input type="checkbox" name="games[]" value="Hokey" id="cb1_sub_3"/>
+	       <input type="checkbox" name="games[]" value="Football" id="cb1_sub_1"/> <span>Football</span> 
+	       <input type="checkbox" name="games[]" value="cricket" id="cb1_sub_2"/>  <span>Cricket</span>
+	       <input type="checkbox" name="games[]" value="Hokey" id="cb1_sub_3"/>    <span>Hokey</span> 
           </p>
 
           <p id="cb2_sub">
-	        <span>Horror</span> <input type="checkbox" name="movies[]" value="Horror" id="cb2_sub_1"/>
-	        <span>Action</span> <input type="checkbox" name="movies[]" value="Action"  id="cb2_sub_2"/>
-	        <span>Comedy</span> <input type="checkbox" name="movies[]" value="Comedy" id="cb2_sub_3"/>
+	        <input type="checkbox" name="movies[]" value="Horror" id="cb2_sub_1"/>  <span>Horror</span>
+	        <input type="checkbox" name="movies[]" value="Action"  id="cb2_sub_2"/> <span>Action</span>
+	        <input type="checkbox" name="movies[]" value="Comedy" id="cb2_sub_3"/>  <span>Comedy</span>
           </p>
 
            <p id="cb3_sub">
-	        <span>News Paper</span> <input type="checkbox" name="reading[]" value="News Paper" id="cb3_sub_1"/>
-	        <span>Magazine</span>   <input type="checkbox" name="reading[]" value="Magazine" id="cb3_sub_2"/>
-	        <span>Comics</span> 	<input type="checkbox" name="reading[]" value="Comics" id="cb3_sub_3"/>
+	         <input type="checkbox" name="reading[]" value="News Paper" id="cb3_sub_1"/> <span>News Paper</span>
+	         <input type="checkbox" name="reading[]" value="Magazine" id="cb3_sub_2"/>  <span>Magazine</span>
+	         <input type="checkbox" name="reading[]" value="Comics" id="cb3_sub_3"/>  <span>Comics</span> 
           </p>
 
           <a href='#' onclick='overlay(); cbcheck(); '>close</a>
@@ -219,8 +219,6 @@ session_start();
 }
 
 
-
-echo  $_SESSION["phoneCheck"];
 
 
 ?>

@@ -7,13 +7,13 @@ $_SESSION["nameErr"] = $_SESSION["emailErr"] = $_SESSION["phoneErr"] = $_SESSION
 $_SESSION["name"] = $_SESSION["email"] = $_SESSION["phone"] = $_SESSION["feedback"] = $_SESSION["sex"] = $_SESSION["country"] = $_SESSION["state"]="";
 
    
-function test_input($data) 
-{
-   $data = trim($data);
-   $data = stripslashes($data);
-   $data = htmlspecialchars($data);
-   return $data;
-}
+		function test_input($data) 
+		{
+		   $data = trim($data);
+		   $data = stripslashes($data);
+		   $data = htmlspecialchars($data);
+		   return $data;
+		}
 
 
 
@@ -97,8 +97,23 @@ if($_POST['name'] !=null && $_POST['email']!=null && $_POST['phone']!=null && $_
 	'reading'=>$_POST['reading']
 );
 
-	$myfile = fopen("userData_".$_POST['name'].".txt", "w");
-	fwrite($myfile, json_encode($data));
+	//$myfile = fopen("userData_".$_POST['name'].".txt", "w");
+
+	if(file_get_contents("userData.txt"))
+	{
+		$myfile = fopen("userData.txt", "a+");
+		fwrite($myfile, ",\n");
+		fwrite($myfile, json_encode($data));
+	}
+	else
+	{
+		$myfile = fopen("userData.txt", "w");
+		fwrite($myfile, json_encode($data));
+	} 
+
+	
+	
+
 
 
 	$_SESSION["msg"]="<span style=\"color: green; font-size:15px;\"> subscription is successful</span>";
@@ -113,7 +128,7 @@ else
 }
 
 
-	header($target); /* Redirect browser */
+	header($target);  //Redirect browser 
 	exit();
 
 
