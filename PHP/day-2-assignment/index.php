@@ -70,12 +70,12 @@ session_start();
 							<table border="0" cellspacing="5" cellpadding="5">
 								<tr>
 									<td><span>Name</span></td>
-									<td><input id="name" name="name" type="text" class="text_input_style text_input_bgcolor"  <?php if(empty($_SESSION["nameErr"])) { echo " value=\"". $_SESSION["name"] ."\" ";} ?>  /></td>
+									<td><input id="name" name="name" type="text" class="text_input_style text_input_bgcolor"  <?php if(isset($_SESSION["nameErr"]) &&  empty($_SESSION["nameErr"])) { echo " value=\"". $_SESSION["name"] ."\" ";} ?>  /></td>
 									<td><?php if( isset($_SESSION["nameErr"]) && !empty($_SESSION["nameErr"])) { echo " <span class=\"error\">required</span> ";} ?></td>
 								</tr>
 								<tr>
 									<td><span>Email</span></td>
-									<td><input id="email" name="email" type="email" class="text_input_style text_input_bgcolor"  <?php if(empty($_SESSION["emailErr"])) { echo " value=\"". $_SESSION["email"] ."\" ";} ?>  /></td>
+									<td><input id="email" name="email" type="email" class="text_input_style text_input_bgcolor"  <?php if(isset($_SESSION["emailErr"]) && empty($_SESSION["emailErr"])) { echo " value=\"". $_SESSION["email"] ."\" ";} ?>  /></td>
 									<td><?php if(isset($_SESSION["emailErr"]) && !empty($_SESSION["emailErr"])) { echo " <span class=\"error\">required</span> ";} ?>
 										<?php if(isset($_SESSION["emailCheck"]) &&  !empty($_SESSION["emailCheck"])) { echo " <span class=\"error\">invalid</span> ";} ?>
 
@@ -83,7 +83,7 @@ session_start();
 								</tr>
 								<tr>
 									<td><span>Phone</span></td>
-									<td><input maxlength="10" name="phone"   title="Indian(+91) 10 digit Mobile number"  id="phone" type="text" class="text_input_style text_input_bgcolor" onkeypress="return numbercheck(event)" onblur="checkIndia();" <?php if(empty($_SESSION["phoneErr"])) { echo " value=\"". $_SESSION["phone"] ."\" ";} ?> /></td>
+									<td><input maxlength="10" name="phone"   title="Indian(+91) 10 digit Mobile number"  id="phone" type="text" class="text_input_style text_input_bgcolor" onkeypress="return numbercheck(event)" onblur="checkIndia();" <?php if( isset($_SESSION["phoneErr"]) && empty($_SESSION["phoneErr"])) { echo " value=\"". $_SESSION["phone"] ."\" ";} ?> /></td>
 									<td><?php if( isset($_SESSION["phoneErr"]) && !empty($_SESSION["phoneErr"])) { echo " <span class=\"error\">required</span> ";} ?>
 										<?php if( isset($_SESSION["phoneCheck"]) && !empty($_SESSION["phoneCheck"])) { echo " <span class=\"error\">invalid</span> ";} ?>
 									</td>
@@ -91,8 +91,8 @@ session_start();
 								<tr>
 									<td><span>Sex</span></td>
 									<td>
-										<input type="radio" name="sex" value="Male" <?php if(empty($_SESSION["sexErr"]) && $_SESSION["sex"]=="Male" ) { echo " checked";} ?> /><span>Male</span>
-										<input type="radio" name="sex" value="Female" <?php if(empty($_SESSION["sexErr"]) && $_SESSION["sex"]=="Female" ) { echo " checked";} ?>  /><span>Female</span>
+										<input type="radio" name="sex" value="Male" <?php if(isset($_SESSION["sexErr"]) &&  empty($_SESSION["sexErr"]) && $_SESSION["sex"]=="Male" ) { echo " checked";} ?> /><span>Male</span>
+										<input type="radio" name="sex" value="Female" <?php if(isset($_SESSION["sexErr"]) && empty($_SESSION["sexErr"]) && $_SESSION["sex"]=="Female" ) { echo " checked";} ?>  /><span>Female</span>
 									</td>
 									<td><?php if(isset($_SESSION["sexErr"]) && !empty($_SESSION["sexErr"])) { echo " <span class=\"error\">required</span> ";} ?></td>
 								</tr>
@@ -116,14 +116,14 @@ session_start();
 										<select id="country" name="country" class="text_input_style text_input_bgcolor" onchange="stateChange(this);" >
 											<option value="" ></option>
 											
-											<option value="IN" <?php if(empty($_SESSION["countryErr"]) && $_SESSION["country"]=="IN" ) { echo "selected";} ?> >India</option>
-											<option value="US" <?php if(empty($_SESSION["countryErr"]) && $_SESSION["country"]=="US" ) { echo "selected";} ?> >United States</option>
+											<option value="IN" <?php if(isset($_SESSION["countryErr"]) && empty($_SESSION["countryErr"]) && $_SESSION["country"]=="IN" ) { echo "selected";} ?> >India</option>
+											<option value="US" <?php if(isset($_SESSION["countryErr"]) && empty($_SESSION["countryErr"]) && $_SESSION["country"]=="US" ) { echo "selected";} ?> >United States</option>
 	
 										</select>
 
 									</td>
 
-									<td><?php if(!empty($_SESSION["countryErr"])) { echo " <span class=\"error\">*</span> ";} ?></td>
+									<td><?php if(isset($_SESSION["countryErr"]) && !empty($_SESSION["countryErr"])) { echo " <span class=\"error\">*</span> ";} ?></td>
 
 								</tr>
 								<tr>
@@ -138,7 +138,7 @@ session_start();
 								<tr>
 									<td valign="top"><span>Feedback</span></td>
 									<td>
-									<textarea name="feedback" spellcheck="true" id="feedback" type="text" class="text_textarea_style text_input_style text_input_bgcolor" ><?php if(empty($_SESSION["feedbackErr"])) {echo trim($_SESSION["feedback"]);} ?></textarea>
+									<textarea name="feedback" spellcheck="true" id="feedback" type="text" class="text_textarea_style text_input_style text_input_bgcolor" ><?php if(isset($_SESSION["feedbackErr"]) && empty($_SESSION["feedbackErr"])) {echo trim($_SESSION["feedback"]);} ?></textarea>
 									</td> 
 									<td valign="top"><?php if( isset($_SESSION["feedbackErr"]) && !empty($_SESSION["feedbackErr"])) { echo " <span class=\"error\">*</span> ";} ?></td>
 								</tr>
@@ -189,7 +189,7 @@ session_start();
 
 <?php
 
-	if($_SESSION["toggle_flag"] && !empty($_SESSION["toggle_flag"]))
+	if(isset($_SESSION["toggle_flag"]) &&  $_SESSION["toggle_flag"] && !empty($_SESSION["toggle_flag"]))
 	{ 
 		$_SESSION["toggle_flag"]=false;
 		
