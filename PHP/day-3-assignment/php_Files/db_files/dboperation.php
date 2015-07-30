@@ -79,7 +79,7 @@ function updateSubsciberDetails($ID, $data)
 	$f=false;
 	$conn = myConnection(); 
 
-	$sql = "UPDATE subscriber_details SET SUBSCRIBER_NAME = '$data[0]', SUBSCRIBER_MAIL_ID = '$data[1]', SUBSCRIBER_PHONE = '$data[2]', SUBSCRIBER_SEX = '$data[3]', SUBSCRIBER_COUNTRY = '$data[4]', SUBSCRIBER_STATE = '$data[5]', SUBSCRIBER_FEEDBACK = '$data[6]' WHERE ID = $ID";
+	$sql = "UPDATE subscriber_details SET SUBSCRIBER_NAME = '$data[0]', SUBSCRIBER_MAIL_ID = '$data[1]', SUBSCRIBER_PHONE = '$data[2]', SUBSCRIBER_SEX = '$data[3]', SUBSCRIBER_COUNTRY = '$data[4]', SUBSCRIBER_STATE = '$data[5]', SUBSCRIBER_FEEDBACK = '$data[6]', INTEREST_GAME= '$data[7]', INTEREST_MOVIE= '$data[8]', INTEREST_READING= '$data[9]' WHERE ID = $ID";
 
 	if ($conn->query($sql) === TRUE) {
 	    echo "Record updated successfully";

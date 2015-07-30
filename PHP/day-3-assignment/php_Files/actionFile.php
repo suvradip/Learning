@@ -122,7 +122,10 @@ $_SESSION["game"] = $_SESSION["movies"] = $_SESSION["reading"] = "";
 			$_POST['sex'],
 			$_POST['country'],
 			$_POST['state'],
-			$_POST['feedback']
+			$_POST['feedback'],
+			$_POST['game'],
+			$_POST['movie'],
+			$_POST['reading']
 
 			);
 

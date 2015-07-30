@@ -32,6 +32,15 @@ if ($result->num_rows > 0)
 	    	echo "</th>";
 	    	echo "<th>";
 	    	echo "Feedback";
+	    	echo "</th>";
+	    	echo "<th>";
+	    	echo "Game";
+	    	echo "</th>";
+	    	echo "<th>";
+	    	echo "Movie";
+	    	echo "</th>";
+	    	echo "<th>";
+	    	echo "Reading";
 	    	echo "</th>";								
 	    echo "</tr>";
 	    while($row = $result->fetch_assoc())
@@ -64,15 +73,15 @@ if ($result->num_rows > 0)
 		        echo "</td>";
 
 		        echo "<td>";
-		        echo "<span id=feedback".$row["ID"]." >".$row["SUBSCRIBER_FEEDBACK"]."</span>";
+		        echo "<span id=feedback".$row["ID"]." >".$row["INTEREST_GAME"]."</span>";
 		        echo "</td>";
 
 		         echo "<td>";
-		        echo "<span id=feedback".$row["ID"]." >".$row["SUBSCRIBER_FEEDBACK"]."</span>";
+		        echo "<span id=feedback".$row["ID"]." >".$row["INTEREST_MOVIE"]."</span>";
 		        echo "</td>";
 
 		         echo "<td>";
-		        echo "<span id=feedback".$row["ID"]." >".$row["SUBSCRIBER_FEEDBACK"]."</span>";
+		        echo "<span id=feedback".$row["ID"]." >".$row["INTEREST_READING"]."</span>";
 		        echo "</td>";
 
 		        echo "<td>";
