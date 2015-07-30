@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 30, 2015 at 09:59 AM
+-- Generation Time: Jul 30, 2015 at 10:26 AM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -39,15 +39,15 @@ CREATE TABLE IF NOT EXISTS `subscriber_details` (
   `INTEREST_MOVIE` varchar(10) NOT NULL,
   `INTEREST_READING` varchar(10) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `subscriber_details`
 --
 
 INSERT INTO `subscriber_details` (`ID`, `SUBSCRIBER_NAME`, `SUBSCRIBER_MAIL_ID`, `SUBSCRIBER_PHONE`, `SUBSCRIBER_SEX`, `SUBSCRIBER_COUNTRY`, `SUBSCRIBER_STATE`, `SUBSCRIBER_FEEDBACK`, `INTEREST_GAME`, `INTEREST_MOVIE`, `INTEREST_READING`) VALUES
-(28, 'suvradip saha', 'suvradip@fusioncharts.com', 8981390509, 'Male', 'US', 'Arkansas', '', 'Football', 'unchecked', 'unchecked'),
-(29, 'suvradip saha', 'suvradip@fusioncharts.com', 8981390509, 'Male', 'US', 'Arkansas', 'sdss', 'Football', 'unchecked', 'unchecked');
+(29, 'suvradip saha', 'suvradip@fusioncharts.com', 8981390509, 'Male', 'US', 'Arkansas', 'sdss', 'Football', 'good', 'unchecked'),
+(30, 'suvradip saha', 'suvradip@fusioncharts.com', 8981390509, 'Male', 'US', 'Arkansas', 'Hello', 'Football', 'Movie', 'Reading');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
