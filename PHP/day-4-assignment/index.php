@@ -178,7 +178,7 @@
 </script>
 
 <form method="get" onsubmit="return false"   >
-<h1>Page Designed by Suvradip Saha</h1>
+<h4 align="center">Page Designed by Suvradip Saha</h4>
 
 
 <div class="tabs">

@@ -90,34 +90,34 @@ $emailFormat=$phoneFormat="";
 	   }";
 
 
-	   if($nameErr=="false" && $emailErr=="false" && $phoneErr=="false" && $feedbackErr=="false" && $sexErr=="false" && $countryErr=="false" && $stateErr=="false" && $emailFormat=="true" && $phoneFormat=="true" && $interestErr=="false")
+	    if($nameErr=="false" && $emailErr=="false" && $phoneErr=="false" && $feedbackErr=="false" && $sexErr=="false" && $countryErr=="false" && $stateErr=="false" && $emailFormat=="true" && $phoneFormat=="true" && $interestErr=="false")
 		{
 
-		$csvData=$_GET['name'].",".$_GET['email'].",".$_GET['phone'].",".$_GET['sex'].",".$_GET['country'].",".$_GET['state'].",".$_GET['feedback'].",".$_GET['cb1V'].",".$_GET['cb2V'].",".$_GET['cb3V'];
+			$csvData=$_GET['name'].",".$_GET['email'].",".$_GET['phone'].",".$_GET['sex'].",".$_GET['country'].",".$_GET['state'].",".$_GET['feedback'].",".$_GET['cb1V'].",".$_GET['cb2V'].",".$_GET['cb3V'];
 
-		if(file_exists("userData.csv"))
-		{
-			$myfile = fopen("userData.csv", "a+");
-			fwrite($myfile, ",\n");
-			fwrite($myfile, $csvData);
-			echo "Subscription";
+			if(file_exists("userData.csv"))
+			{
+				$myfile = fopen("userData.csv", "a+");
+				fwrite($myfile, ",\n");
+				fwrite($myfile, $csvData);
+				echo "Subscription";
+			}
+			else
+			{
+				$myfile = fopen("userData.csv", "a+");
+				$csvDataHeading="Name,Email,Phone,Sex,Country,State,Feedback,Interest_1,Interest_2,Interest_3";
+				fwrite($myfile, $csvDataHeading);
+				fwrite($myfile, ",\n");
+				fwrite($myfile, $csvData);
+				echo "Subscription";
+			} 
+
 		}
 		else
 		{
-			$myfile = fopen("userData.csv", "a+");
-			$csvDataHeading="Name,Email,Phone,Sex,Country,State,Feedback,Interest_1,Interest_2,Interest_3";
-			fwrite($myfile, $csvDataHeading);
-			fwrite($myfile, ",\n");
-			fwrite($myfile, $csvData);
-			echo "Subscription";
-		} 
 
-	}
-	else
-	{
-
-		 echo $text;
-	 
-	}	
-		
+			 echo $text;
+		 
+		}	
+			
 ?>
