@@ -381,8 +381,19 @@ var states = new Array(2)
     function removeOptions()
     {
         
-         document.getElementById("state").innerHTML="";
-          document.getElementById("state").disabled=true;
+        document.getElementById("state").innerHTML="";
+        document.getElementById("state").disabled=true;
+        document.getElementById("subscription").innerHTML="";
+        document.getElementById("nameErr").innerHTML="";
+        document.getElementById("phoneErr").innerHTML="";   
+        document.getElementById("emailErr").innerHTML="";
+        document.getElementById("stateErr").innerHTML="";   
+        document.getElementById("feedbackErr").innerHTML="";    
+        document.getElementById("sexErr").innerHTML=""; 
+        document.getElementById("interestErr").innerHTML="";    
+        document.getElementById("emailValidate").innerHTML="";  
+        document.getElementById("phoneValidate").innerHTML="";  
+        document.getElementById("countryErr").innerHTML="";    
     }
 
 

@@ -72,9 +72,7 @@ $emailFormat=$phoneFormat="";
 
 		}else
 		$phoneFormat = "false"; 
-  
-	  
-	//\"interestErr\":".$interestErr."
+ 
 
 
 	 $text = "{
@@ -93,10 +91,8 @@ $emailFormat=$phoneFormat="";
 
 
 	   if($nameErr=="false" && $emailErr=="false" && $phoneErr=="false" && $feedbackErr=="false" && $sexErr=="false" && $countryErr=="false" && $stateErr=="false" && $emailFormat=="true" && $phoneFormat=="true" && $interestErr=="false")
-	//if($_GET['email']!=null && $_GET['phone']!=null && $_GET['sex']!=null && $_GET['country']!=null && $_GET['state']!=null && $_GET['feedback']!=null && $_GET['country']!=null)
-	{
-		
-	
+		{
+
 		$csvData=$_GET['name'].",".$_GET['email'].",".$_GET['phone'].",".$_GET['sex'].",".$_GET['country'].",".$_GET['state'].",".$_GET['feedback'].",".$_GET['cb1V'].",".$_GET['cb2V'].",".$_GET['cb3V'];
 
 		if(file_exists("userData.csv"))

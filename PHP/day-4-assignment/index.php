@@ -47,7 +47,7 @@
 			{
 				//document.getElementById("feedback").innerHTML=xmlhttp.responseText;
 				data=xmlhttp.responseText;
-				
+				//console.log(data);	
 
 				if(data=="Subscription")
 				{
@@ -59,7 +59,8 @@
 				document.getElementById("sexErr").innerHTML="";	
 				document.getElementById("interestErr").innerHTML="";	
 				document.getElementById("emailValidate").innerHTML="";	
-				document.getElementById("phoneValidate").innerHTML="";	
+				document.getElementById("phoneValidate").innerHTML="";
+				document.getElementById("countryErr").innerHTML="";		
 
 				document.getElementById("subscription").innerHTML="Subscription Successfull.";
 				document.getElementById("subscription").style.color="green";	
@@ -67,23 +68,23 @@
 				else
 				{
 				var json =JSON.parse(data);		
-				
+				//console.log(json);	
 
 				document.getElementById("subscription").innerHTML="* required";	
 				document.getElementById("subscription").style.color="red";
 				if(json["nameErr"])
-				document.getElementById("nameErr").innerHTML="required";	
+				document.getElementById("nameErr").innerHTML="*";	
 				else
 				document.getElementById("nameErr").innerHTML="";
 
 				if(json["phoneErr"])
-				document.getElementById("phoneErr").innerHTML="required";	
+				document.getElementById("phoneErr").innerHTML="*";	
 				else
 				document.getElementById("phoneErr").innerHTML="";	
 
 
 				if(json["emailErr"])
-				document.getElementById("emailErr").innerHTML="required";	
+				document.getElementById("emailErr").innerHTML="*";	
 				else
 				document.getElementById("emailErr").innerHTML="";	
 
@@ -105,12 +106,12 @@
 				document.getElementById("feedbackErr").innerHTML="";	
 
 				if(json["sexErr"])
-				document.getElementById("sexErr").innerHTML="required";	
+				document.getElementById("sexErr").innerHTML="*";	
 				else
 				document.getElementById("sexErr").innerHTML="";	
 
 				if(json["interestErr"])
-				document.getElementById("interestErr").innerHTML="required";	
+				document.getElementById("interestErr").innerHTML="*";	
 				else
 				document.getElementById("interestErr").innerHTML="";	
 
