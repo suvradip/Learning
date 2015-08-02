@@ -95,7 +95,7 @@ $emailFormat=$phoneFormat="";
 
 			$csvData=$_GET['name'].",".$_GET['email'].",".$_GET['phone'].",".$_GET['sex'].",".$_GET['country'].",".$_GET['state'].",".$_GET['feedback'].",".$_GET['cb1V'].",".$_GET['cb2V'].",".$_GET['cb3V'];
 
-			if(file_exists("userData.csv"))
+			if(file_exists("../csv_files/userData.csv"))
 			{
 				$myfile = fopen("../csv_files/userData.csv", "a+");
 				fwrite($myfile, ",\n");
@@ -103,8 +103,8 @@ $emailFormat=$phoneFormat="";
 			}
 			else
 			{
-				$myfile = fopen("userData.csv", "a+");
-				$csvDataHeading="Name,Email,Phone,Sex,Country,State,Feedback,Interest_1,Interest_2,Interest_3";
+				$myfile = fopen("../csv_files/userData.csv", "a+");
+				$csvDataHeading="Name,Email,Phone,Sex,Country,State,Feedback,Interested_Game,Interested_Movie,Interested_Reading";
 				fwrite($myfile, $csvDataHeading);
 				fwrite($myfile, ",\n");
 				fwrite($myfile, $csvData);

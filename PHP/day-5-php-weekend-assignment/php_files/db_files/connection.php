@@ -5,7 +5,7 @@ function myConnection()
 {
 $servername = "localhost";
 $username = "root";
-$password = "123";
+$password = "";
 $databasename = "suvradip";
 
 // Create connection

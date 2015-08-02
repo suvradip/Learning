@@ -36,38 +36,6 @@ function numbercheck(e)
 }
 
 
-function cbchange(cb) {
-  if(cb.checked == true){
-   document.getElementById("cb1_sub").style.visibility = "block";
-  }else{
-   alert('Message 2');
-  }
-}
-
-
-function checkboxValue(cb1,cb2,cb3)
-{
-    
-	int1="";
-	int2="";
-	int3="";
-
-    if (cb1.checked == true)
-    {
-         int1 = cb1.value;
-    }
-
-    if (cb2.checked == true)
-    {
-         int2 = cb2.value;
-    }
-   
-    if (cb3.checked == true)
-    {
-         int3 = cb3.value;
-    }
-    
-}
 
 
 
@@ -82,95 +50,6 @@ function radioCheckedValue(rname)
 }
 
 
-function getData()
-{
-
-//checking textboxe values
-if(document.getElementById("name").value!="" && document.getElementById("email").value!=""  && document.getElementById("country").selectedIndex!=0 && document.getElementById("address").value!=""  )
-		{
-
-			//gets the all value from text boxes	
-			var n=document.getElementById("name").value;
-			var e=document.getElementById("email").value;
-            var p=document.getElementById("phone").value;
-			var ele = document.getElementById("country");
-			var c = ele.options[ele.selectedIndex].text;
-
-           // var s=ele.options[document.getElementById("state").selectedIndex].text;
-
-			var a=document.getElementById("address").value;
-			var cb1=document.getElementById("cb1");
-			var cb2=document.getElementById("cb2");
-			var cb3=document.getElementById("cb3");
-
-			//checkboxValue(cb1,cb2,cb3);
-
-			var gender =  radioCheckedValue("sex");
-			
-            var cb1=document.getElementById("cb1");
-            var cb2=document.getElementById("cb2");
-            var cb3=document.getElementById("cb3");
-            var games=[];
-            var movies=[];
-            var reading=[];
-
-            if(cb1.checked==true)
-            {
-               
-                var els = document.getElementsByName('games');
-                for (var i=0;i<els.length;i++)
-                {
-                    if ( els[i].checked ) 
-                    {
-                     games.push(els[i].value);
-                    }
-                 }
-            }
-
-             if(cb2.checked==true)
-            {
-               
-                var els = document.getElementsByName('movies');
-                for (var i=0;i<els.length;i++)
-                {
-                    if ( els[i].checked ) 
-                    {
-                     movies.push(els[i].value);
-                    }
-                 }
-            }
-             if(cb3.checked==true)
-            {
-               
-                var els = document.getElementsByName('reading');
-                for (var i=0;i<els.length;i++)
-                {
-                    if ( els[i].checked ) 
-                    {
-                     reading.push(els[i].value);
-                    }
-                 }
-            }
-
-            //storing this data in Jason 
-    		var data=({
-						"name":n,
-						"email":e,
-                        "phone":p,
-						"country":c,
-						"address":a,
-						"sex":gender,
-						"games":games,
-						"movies":movies,
-						"reading":reading
-
-    				});
-
-				console.log(JSON.stringify(data));
-		}
-
-
-}
 
 
 
@@ -224,28 +103,6 @@ function overlay(cb)
 	
 }
 
-
-function cbcheck()
-{
-
-		if(document.getElementById("cb1_sub_1").checked==true || document.getElementById("cb1_sub_2").checked==true || document.getElementById("cb1_sub_3").checked==true)
-		  document.getElementById("cb1").checked=true;
-		else
-		  document.getElementById("cb1").checked=false;	
-		
-
-		if(document.getElementById("cb2_sub_1").checked==true || document.getElementById("cb2_sub_2").checked==true || document.getElementById("cb2_sub_3").checked==true)
-		  document.getElementById("cb2").checked=true;
-		else
-		  document.getElementById("cb2").checked=false;	
-	
-		
-		if(document.getElementById("cb3_sub_1").checked==true || document.getElementById("cb3_sub_2").checked==true || document.getElementById("cb3_sub_3").checked==true)
-		  document.getElementById("cb3").checked=true;
-		else
-		  document.getElementById("cb3").checked=false;	
-		
-}
 
 var states = new Array(2) 
     states["0"] = ["Select"]; 
@@ -397,30 +254,149 @@ var states = new Array(2)
     }
 
 
-    function populateState(selectObj)
-     { 
-        document.getElementById("state").disabled=false;
-        var idx = selectObj.selectedIndex;
-        var which = selectObj.options[idx].value;
-    
-        var uList = states[which];
-        var state = document.getElementById("state");
-     
-       
+    function loadXMLDoc(q)
+    {
+        var xmlhttp;
+        var txt,x,i;
 
-       
-        var newOption;
-        // create and add new options 
-        for (var i=0; i<uList.length; i++) 
-        {
-            newOption = document.createElement("option"); 
-            newOption.value = uList[i];  
-            newOption.text=uList[i];
-            try { 
-                state.add(newOption); 
-                } 
-            catch (e) { 
-                state.appendChild(newOption);
-                } 
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
         }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange=function()
+        {
+            if(xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                data=xmlhttp.responseText;
+                console.log(data);  
+
+                if(data=="Subscription")
+                {
+                document.getElementById("nameErr").innerHTML="";
+                document.getElementById("phoneErr").innerHTML="";   
+                document.getElementById("emailErr").innerHTML="";
+                document.getElementById("stateErr").innerHTML="";   
+                document.getElementById("feedbackErr").innerHTML="";    
+                document.getElementById("sexErr").innerHTML=""; 
+                document.getElementById("interestErr").innerHTML="";    
+                document.getElementById("emailValidate").innerHTML="";  
+                document.getElementById("phoneValidate").innerHTML="";
+                document.getElementById("countryErr").innerHTML="";     
+
+                document.getElementById("subscription").innerHTML="Subscription Successfull.";
+                document.getElementById("subscription").style.color="green";    
+                }
+                else
+                {
+                var json =JSON.parse(data);     
+                //console.log(json);    
+
+                document.getElementById("subscription").innerHTML="* required"; 
+                document.getElementById("subscription").style.color="red";
+                if(json["nameErr"])
+                document.getElementById("nameErr").innerHTML="*";   
+                else
+                document.getElementById("nameErr").innerHTML="";
+
+                if(json["phoneErr"])
+                document.getElementById("phoneErr").innerHTML="*";  
+                else
+                document.getElementById("phoneErr").innerHTML="";   
+
+
+                if(json["emailErr"])
+                document.getElementById("emailErr").innerHTML="*";  
+                else
+                document.getElementById("emailErr").innerHTML="";   
+
+
+                if(json["countryErr"])
+                document.getElementById("countryErr").innerHTML="*";    
+                else
+                document.getElementById("countryErr").innerHTML=""; 
+
+
+                if(json["stateErr"])
+                document.getElementById("stateErr").innerHTML="*";  
+                else
+                document.getElementById("stateErr").innerHTML="";   
+
+                if(json["feedbackErr"])
+                document.getElementById("feedbackErr").innerHTML="*";   
+                else
+                document.getElementById("feedbackErr").innerHTML="";    
+
+                if(json["sexErr"])
+                document.getElementById("sexErr").innerHTML="*";    
+                else
+                document.getElementById("sexErr").innerHTML=""; 
+
+                if(json["interestErr"])
+                document.getElementById("interestErr").innerHTML="*";   
+                else
+                document.getElementById("interestErr").innerHTML="";    
+
+
+                if(json["emailFormat"])
+                document.getElementById("emailValidate").innerHTML="";  
+                else
+                document.getElementById("emailValidate").innerHTML="Invalid";   
+
+                if(json["phoneFormat"])
+                document.getElementById("phoneValidate").innerHTML="";  
+                else
+                document.getElementById("phoneValidate").innerHTML="Invalid";   
+                }   
+
+
+            }
+        }
+
+        xmlhttp.open("GET","php_files/action_files/actionIndex.php?"+q,true);
+        xmlhttp.send();
+
+
+        
     }
+    
+
+    function checkValidData()
+    {
+            var chk1=chk2=chk3="";
+
+            var n=document.getElementById("name").value;
+            var e=document.getElementById("email").value;
+            var p=document.getElementById("phone").value;
+            var con = document.getElementById("country").value;
+            var s = document.getElementById("state").value;
+            var f=document.getElementById("feedback").value;
+            var gender =  radioCheckedValue("sex");
+
+            var cb1=document.getElementById("cb1").checked;
+            var cb2=document.getElementById("cb2").checked;
+            var cb3=document.getElementById("cb3").checked;
+            
+
+            if(cb1)
+            var cb1V=document.getElementById("cb1").value;
+            
+            if(cb2)        
+            var cb2V=document.getElementById("cb2").value;
+            
+            if(cb3)
+            var cb3V=document.getElementById("cb3").value;
+
+            var q= "name=" + n + "&email=" + e + "&phone=" + p + "&country=" + con + "&state=" + s + "&feedback=" + f + "&sex=" + gender + "&cb1=" + cb1 + "&cb2=" + cb2 + "&cb3=" + cb3 + "&cb1V=" + cb1V + "&cb2V=" + cb2V + "&cb3V=" + cb3V;
+
+
+            loadXMLDoc(q);
+        
+    }
+
+
+    
