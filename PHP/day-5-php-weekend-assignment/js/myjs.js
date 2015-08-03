@@ -273,7 +273,7 @@ var states = new Array(2)
             if(xmlhttp.readyState==4 && xmlhttp.status==200)
             {
                 data=xmlhttp.responseText;
-                console.log(data);  
+               // console.log(data);  
 
                 if(data=="Subscription")
                 {
