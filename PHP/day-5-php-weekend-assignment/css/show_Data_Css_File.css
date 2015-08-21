@@ -1,0 +1,24 @@
+span
+{
+display:inline-table;
+width: 7em;
+padding-left: 2px;
+
+outline: none;
+}
+
+th
+{
+text-decoration: underline;
+}
+.id_style
+{
+	width:2em; 
+}
+.msg
+{
+	display: block;
+	width: auto;
+	padding: 0;
+	margin-bottom: 2%;
+}
