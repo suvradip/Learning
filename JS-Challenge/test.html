@@ -11,24 +11,29 @@
 
 <script type="text/javascript">
 	
-var paper = Raphael(150, 100, 1300, 1500);
+var paper = Raphael(150, 100, 800, 500);
+paper.rect(0,0,800,500);
 
-var circle =  paper.circle(410, 245, 100).attr({'fill':'#009933' });
-var circle1 = paper.circle(410, 245, 100).attr({'fill':'#009933' });
-var circle2 = paper.circle(410, 245, 100).attr({'fill':'#009933' });
-var circle3 = paper.circle(410, 245, 100).attr({'fill':'#009933' });
-var circle4 = paper.circle(410, 245, 100).attr({'fill':'#009933' });
+var anim1 = Raphael.animation({cx: 750, cy: 50}, 2e3);
+var anim2 = Raphael.animation({cx: 750, cy: 450}, 2e3);
+var anim3 = Raphael.animation({cx: 50, cy: 50}, 2e3);
+var anim4 = Raphael.animation({cx: 50, cy: 450}, 2e3);
 
-//var anim = Raphael.animation({ cx:600,cy: 100}, 2e3);
-var anim1 = Raphael.animation({ cx:-400,cy: 100}, 2e3);
-var anim2 = Raphael.animation({ cx:600,cy: 100}, 2e3);
-var anim3 = Raphael.animation({ cx:600,cy: -100}, 2e3);
-var anim4 = Raphael.animation({ cx:-400,cy: -100}, 2e3);
+var circle1 =  paper.circle(400, 250, 50).attr({'fill':'#009933' }).animate(anim1);
+var circle2 =  paper.circle(400, 250, 50).attr({'fill':'#009933' }).animate(anim2);
+var circle3 =  paper.circle(400, 250, 50).attr({'fill':'#009933' }).animate(anim3);
+var circle4=   paper.circle(400, 250, 50).attr({'fill':'#009933' }).animate(anim4);
 
-circle1.animate(anim1); 
-circle2.animate(anim2); 
-circle3.animate(anim3); 
-circle4.animate(anim4); 
+/*
+circle1.animate(anim1);
+circle2.animate(anim2);
+circle3.animate(anim3);
+circle4.animate(anim4);
+
+*/
+
+	
+
 
 </script>
 
