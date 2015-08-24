@@ -66,9 +66,9 @@
 	var paper, paper1, circle, hello, div, select;
 
 	paper = Raphael(150, 100, 1000, 900);
-
-	circle = paper.circle(410, 245, 100).attr({'cursor':'pointer','fill':'#009933', 'stroke':'#fff', }).click(function () {show()});
-	hello =  paper.text(410,245,"Hello!").attr({'font-size':'20' , 'fill':'white', 'stroke':'black', 'stroke-width':'.5', 'title' :'say hello'});
+	paper1 = Raphael(100, 300,2000,1000);
+	/*circle = paper.circle(410, 245, 100).attr({'cursor':'pointer','fill':'#009933', 'stroke':'#fff', }).click(function () {show()});
+	hello =  paper.text(410,245,"Hello!").attr({'font-size':'20' , 'fill':'white', 'stroke':'black', 'stroke-width':'.5', 'title' :'say hello'});*/
 
 	var   tweetCircle, tweetCircleText
 		, followersCircle, followersCircleText
@@ -77,7 +77,7 @@
 
 
 	var c= 0, l=0, a=0, h=0, L=[], P=[], P1=[], H, A , family, sports, reading, movies, countries, text, textArray=[];
-	var CA=[], FA=[], SA=[], MA=[], ALL=[];
+	var CA=[], FA=[], SA=[], MA=[], OTH=[], ALL=[];
 
 	family = ["abhishek", "jaya", "amitabh", " harivansh", "aishwarya", "shweta","Ajitabh", "Bachchan", "nikhil", "nanda", "family", "friends"];
 	sports = ["sport", "football", "cricket", "hockey", "tenis", "fifa", "badminton", "boxing", "olympics", "commonwealth", "asian"];
@@ -334,6 +334,7 @@
 	'ZAMBIA',
 	'ZIMBABWE'];
 
+	var  F=false, s=false, f=false, m=false, c=false;
 
 	for(var i=0; i<_totalTweets; i++)
 	{
@@ -370,51 +371,85 @@
 		for(var j=0; j<textArray.length; j++)
 		{
 			
-			for(var z=0; z<countries.length; z++)
-			{
-				if(textArray[j].toLowerCase()==countries[z].toLowerCase())
-				{	
-				CA.push({'text':text, 'reTweet':amitabh[i].retweet_count});
-				ALL.push({'text':text, 'reTweet':amitabh[i].retweet_count, 'color':'#0099FF'});
-				break;	
+				for(var z=0; z<countries.length; z++)
+				{
+					if(textArray[j].toLowerCase()==countries[z].toLowerCase())
+					{	
+					CA.push({'text':text, 'reTweet':amitabh[i].retweet_count, 'color':'#0099FF'});
+					ALL.push({'text':text, 'reTweet':amitabh[i].retweet_count, 'color':'#0099FF'});
+					F=true;
+					c=true;
+					break;
+					}
 				}
-			}
+			
+
+
+				
+				for(var z=0; z<family.length; z++)
+				{
+					if(textArray[j].toLowerCase()==family[z].toLowerCase())
+					{	
+					FA.push({'text':text, 'reTweet':amitabh[i].retweet_count,  'color':'#FF66FF'});
+					ALL.push({'text':text, 'reTweet':amitabh[i].retweet_count, 'color':'#FF66FF'});
+					F=true;
+					f=true;
+					break;
+					}
+				}
+			
+
+	
+				for(var z=0; z<sports.length; z++)
+				{
+					if(textArray[j].toLowerCase()==sports[z].toLowerCase())
+					{	
+					SA.push({'text':text, 'reTweet':amitabh[i].retweet_count,  'color':'#993399'});
+					ALL.push({'text':text, 'reTweet':amitabh[i].retweet_count, 'color':'#993399'});
+					F=true;
+					s=true;
+					break;	
+					}
+				}
+			
+			
 
 			
-			for(var z=0; z<family.length; z++)
-			{
-				if(textArray[j].toLowerCase()==family[z].toLowerCase())
-				{	
-				FA.push({'text':text, 'reTweet':amitabh[i].retweet_count});
-				ALL.push({'text':text, 'reTweet':amitabh[i].retweet_count, 'color':'#FF66FF'});
-				break;	
+				for(var z=0; z<movies.length; z++)
+				{
+					if(textArray[j].toLowerCase()==movies[z].toLowerCase())
+					{	
+					MA.push({'text':text, 'reTweet':amitabh[i].retweet_count, 'color':'#00CC66'});
+					ALL.push({'text':text, 'reTweet':amitabh[i].retweet_count, 'color':'#00CC66'});
+					F=true;
+					m=true;
+					break;	
+					}
 				}
-			}
 
 
-			for(var z=0; z<sports.length; z++)
-			{
-				if(textArray[j].toLowerCase()==sports[z].toLowerCase())
-				{	
-				SA.push({'text':text, 'reTweet':amitabh[i].retweet_count});
-				ALL.push({'text':text, 'reTweet':amitabh[i].retweet_count, 'color':'#993399'});
-				break;	
+				if(c || f || m || s )
+				{
+				OTH.push({'text':text, 'reTweet':amitabh[i].retweet_count, 'color':'#585858'});
+				ALL.push({'text':text, 'reTweet':amitabh[i].retweet_count, 'color':'#585858'});
+				c=false;
+				m=false;
+				f=false;
+				s=false;
+				console.log(i);
+				break;
 				}
-			}
 
-			for(var z=0; z<movies.length; z++)
-			{
-				if(textArray[j].toLowerCase()==movies[z].toLowerCase())
-				{	
-				MA.push({'text':text, 'reTweet':amitabh[i].retweet_count});
-				ALL.push({'text':text, 'reTweet':amitabh[i].retweet_count, 'color':'#00CC66'});
-				break;	
-				}
-			}	
+			
 		}
+
+		
 	}
 
 
+
+	console.log(OTH.length);
+	console.log(ALL.length);
 
 
 	function sortObj(UO)
@@ -439,82 +474,36 @@
 	MA=sortObj(MA);
 	ALL=sortObj(ALL);
 
-	//console.log(ALL.length);
-	//console.dir(ALL);
 
-	var show = function()
-	{
-		hello[0].textContent= _name;
 
-		tweetCircle = paper.circle(100, 100, 80).attr({'cursor':'pointer', 'fill': '#CCFFCC', 'stroke': '#fff'}).click(function() {tweets()});
+		paper.circle(100 ,20, 20).attr({'fill':'#0099FF','stroke':'#000000' })
+		paper.text(100,20, "country");
 
-		tweetCircleText = paper.text(100,100,"TWEETS\n" +_totalTweets).attr({'font-size':'20','stroke':'#fff', 'font-weight':'bold'});
 
-		followersCircle = paper.circle(720, 100, 80).attr({'cursor':'pointer', 'fill': '#CCFFCC', 'stroke': '#fff'});
-		followersCircleText = paper.text(720,100,"FOLLOWERS\n" +_totalFollowers).attr({'font-size':'20','stroke':'#fff', 'font-weight':'bold'});
+		paper.circle(150 ,20, 20).attr({'fill':'#FF66FF','stroke':'#000000' })
+		paper.text(150,20, "Family");
 
-		favouriteCircle = paper.circle(100, 400, 80).attr({'cursor':'pointer', 'fill': '#CCFFCC', 'stroke': '#fff'});
-		favouriteCircleText = paper.text(100,400,"Favourites\n" +_totalFavorites).attr({'font-size':'20','stroke':'#fff', 'font-weight':'bold'});
 
-		followingCircle = paper.circle(720, 400, 80).attr({'cursor':'pointer', 'fill': '#CCFFCC', 'stroke': '#fff'});
-		followingCircleText = paper.text(720,400,"Following\n" +_totalFollowing).attr({'font-size':'20','stroke':'#fff', 'font-weight':'bold'});
+		paper.circle(200 ,20, 20).attr({'fill':'#993399','stroke':'#000000' })
+		paper.text(200,20, "Sports");
 
-		paper1 = Raphael(300,300, 700,900);
+		paper.circle(250 ,20, 20).attr({'fill':'#00CC66','stroke':'#000000' })
+		paper.text(250,20, "Movie");
 
-	}
+
+		paper.circle(300 ,20, 20).attr({'fill':'#585858','stroke':'#000000' })
+		paper.text(300,20, "Others");
 
 
 
-	var tweets = function()
-	{
-		circle.remove();
-		hello.remove();
-		tweetCircle.remove();
-		tweetCircleText.remove();
+		paper.text(380,60, "According to retweet, high count to low count").attr({'font-size':'15'});
 
-		followingCircle.remove();
-		followingCircleText.remove();
-
-		favouriteCircle.remove();
-		favouriteCircleText.remove();
-
-		followersCircle.remove();
-		followersCircleText.remove();
-
-
-		tweetCircle = paper.circle(60, 60, 50).attr({'cursor':'pointer', 'fill': '#CCFFCC', 'stroke': '#fff'}).click(function() {tweets()});
-		tweetCircleText = paper.text(60,60,"Tweets\n" +_totalTweets).attr({'font-size':'15','stroke':'#fff', 'font-weight':'bold'});
-
-
-		followersCircle = paper.circle(60, 180, 50).attr({'cursor':'pointer', 'fill': '#CCFFCC', 'stroke': '#fff'});
-		followersCircleText = paper.text(60,180,"Follorwers\n" +_totalFollowers).attr({'font-size':'15','stroke':'#fff', 'font-weight':'bold'});
-
-		favouriteCircle = paper.circle(60, 300, 50).attr({'cursor':'pointer', 'fill': '#CCFFCC', 'stroke': '#fff'});
-		favouriteCircleText = paper.text(60,300,"Favourites\n" +_totalFavorites).attr({'font-size':'15','stroke':'#fff', 'font-weight':'bold'});
-
-		followingCircle = paper.circle(60, 420, 50).attr({'cursor':'pointer', 'fill': '#CCFFCC', 'stroke': '#fff'});
-		followingCircleText = paper.text(60,420,"Following\n" +_totalFollowing).attr({'font-size':'15','stroke':'#fff', 'font-weight':'bold'});
-
-
-		//paper.rect(150,50,600,400);
-
-
-
-		paper.text(380,60, "Total number of Person Mentioned " + c + " in " + a + " Tweets out of "+_totalTweets ).attr({'font-size':'15'});
-		paper.text(650,60, "show more").attr({'font-size':'15', 'fill':'blue', 'cursor':'pointer'}).click(function() {showMore(P)});
-		paper.text(380,100, "Total number of HashTag used " + h + " in " + _totalTweets + " Tweets.").attr({'font-size':'15'});
-		paper.text(650,100, "show more").attr({'font-size':'15', 'fill':'blue', 'cursor':'pointer'}).click(function() {showMore(P1)});
-
-		//paper2 = Raphael(900,300, 180,300);
-		//paper2.rect(0,0,180,300);
-
-
-		div = createElement("div", document.body, { style:"margin:15% 0 0 70%;position:absolute ;"});
+		div = createElement("div", document.body, { style:"margin:10% 0 0 70%;position:absolute ;"});
 		select = createElement("select", div,{id:"select"} ,{ change:function(){init()}, click:function(){init()} });
-		var option = ["select", "Family", "Flim/Show", "Sports", "Countries"], op=0;
+		var option = ["select", "Family", "Flim/Show", "Sports", "Countries", "Person Mentioned", "Hash Tag","Others", "ALL"], op=0;
 		for(var op=0; op<option.length; op++)
 		createElement("option", select, {label:option[op]} );
-	}
+	//}
 
 
 	var init = function()
@@ -527,9 +516,15 @@
 		else if(x=="Countries")
 		showMore(CA);
 		else if(x=="Flim/Show")	
-		showMore(MA);	
-		/*else if(x=="ALL")
-		showMore(ALL);	*/
+		showMore(MA);
+		else if(x=="Person Mentioned")	
+		showMore(P);
+		else if(x=="Hash Tag")	
+		showMore(P1);
+		else if(x=="Others")
+		showMore(OTH);		
+		else if(x=="ALL")
+		showMore(ALL);	
 	}
 
 
@@ -544,6 +539,9 @@
 
 			var x = 009933;
 			var yincre = 0, xincre=0, incre=0 ; 
+			var c, anim;
+
+
 			for(var z in obj)
 			{
 				if(obj[z].color)
@@ -553,8 +551,15 @@
 
 				if(incre!==7)
 				{
-					paper1.circle(20 + xincre,20 + yincre, 20).attr({'cursor':'pointer','fill':color,'stroke':'#000000', 'title' :obj[z].text }).click((function(a) { return function(){ abc(obj,a) }})(z));
-					paper1.text(20 + xincre,20 + yincre, "Tweet").attr({'cursor':'pointer', 'fill':'black', 'title' :obj[z].text }).click((function(a) { return function(){ abc(obj,a) }})(z));	
+					c = paper1.circle(450 ,350, 20).attr({'cursor':'pointer','fill':color,'stroke':'#000000', 'title' :obj[z].text }).click((function(a) { return function(){ abc(obj,a) }})(z));
+					
+					t = paper1.text(20 + xincre ,20 + yincre , "Tweet").attr({'cursor':'pointer', 'fill':'black', 'title' :obj[z].text }).click((function(a) { return function(){ abc(obj,a) }})(z));	
+
+					anim= Raphael.animation({cx: 20 + xincre, cy: 20 + yincre}, 2e3);
+
+					c.animate(anim);
+				
+
 					//paper.text(170 + xincre,300 + yincre, z + " : " +obj[z]).attr({'text-anchor': 'start', 'font-size':'13'});
 					yincre = yincre + 50 ;
 					incre ++;
