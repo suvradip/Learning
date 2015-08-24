@@ -1,27 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-<link rel="stylesheet" type="text/css" href="raphel-css.css">
-<script type="text/javascript" src="raphael-min.js" ></script>
-<script type="text/javascript" src="amitabh-data.js" ></script>
-</head>
-<body>
+var _totalTweets =   amitabh.length
 
-
-
-
-
-<script type="text/javascript">
-
-	var _name = amitabh[0].user.name
-	, _createdAt =  amitabh[0].user.created_at
-	, _lastTweet = amitabh[0].created_at  
-	, _totalTweets =   amitabh.length
-	, _totalFollowers = amitabh[0].user.followers_count 
-	, _totalFavorites = amitabh[0].user.favourites_count
-	, _totalFollowing = amitabh[0].user.friends_count 
-	, _profileImage = amitabh[0].user.profile_image_url;  
 
 
 	function createElement(tagName, parent, attributeObj, eventObj)
@@ -48,19 +26,6 @@
 	}
 
 
-</script>
-
-
-
-<div class="wrapper">
-  
-  <div class="header">
-    <span>Dashboard Alpha Version</span>
-  </div>  
-
-
- <script type="text/javascript">
-  
 
 
 	var paper, paper1, circle, hello, div, select;
@@ -436,7 +401,6 @@
 				m=false;
 				f=false;
 				s=false;
-				console.log(i);
 				break;
 				}
 
@@ -445,12 +409,6 @@
 
 		
 	}
-
-
-
-	console.log(OTH.length);
-	console.log(ALL.length);
-
 
 	function sortObj(UO)
 	{
@@ -579,14 +537,3 @@
 	{
 	console.log(obj[x].id);
 	}
-
-</script>
-
-
-
-</div> <!-- end of wrapper tag -->
-
-
-
-</body>
-</html>
